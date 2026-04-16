@@ -98,3 +98,28 @@
 - [x] Keep only hero/welcome section on Home page
 - [x] Ensure navigation bar is identical on all pages
 - [x] Test navigation consistency across all routes
+
+
+## Back Button Removal
+
+- [ ] Remove back button from Products page
+- [ ] Remove back button from Shop page  
+- [ ] Remove back button from About page
+- [ ] Remove back button from Events page
+- [ ] Remove back button from Blog page
+- [ ] Remove back button from Reservation page
+- [ ] Remove back button from Checkout page
+- [ ] Remove back button from Privacy page
+- [ ] Remove back button from Terms page
+- [ ] Remove back button from Imprint page
+
+
+## Bug Fixes — Complete
+
+- [x] Create Product detail page (/product/:id)
+- [x] Create Event detail page (/event/:id)
+- [x] Fix product card click handlers to navigate to detail page
+- [x] Fix event card click handlers to navigate to detail page
+- [x] Add routing for product and event detail pages in App.tsx
+- [x] Test product detail functionality
+- [x] Test event detail functionality

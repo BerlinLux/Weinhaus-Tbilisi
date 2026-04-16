@@ -191,7 +191,7 @@ export default function Events({ language }: EventsProps) {
                 </div>
               </div>
 
-              <Button className="w-full md:w-auto bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button onClick={() => setLocation(`/event/${event.id}`)} className="w-full md:w-auto bg-accent text-accent-foreground hover:bg-accent/90">
                 {lang.reserve}
               </Button>
             </div>

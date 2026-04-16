@@ -295,7 +295,7 @@ export default function Products({ language }: ProductsProps) {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProducts.map((product) => (
-              <div key={product.id} className="bg-background border border-border rounded-lg overflow-hidden hover:shadow-md transition">
+              <button key={product.id} onClick={() => setLocation(`/product/${product.id}`)} className="bg-background border border-border rounded-lg overflow-hidden hover:shadow-md transition text-left w-full">
                 <img
                   src={product.image}
                   alt={product.name[language]}
@@ -322,7 +322,7 @@ export default function Products({ language }: ProductsProps) {
                     </Button>
                   </div>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         )}

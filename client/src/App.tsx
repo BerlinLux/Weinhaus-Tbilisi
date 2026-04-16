@@ -17,6 +17,8 @@ import Imprint from "./pages/Imprint";
 import Checkout from "./pages/Checkout";
 import Products from "./pages/Products";
 import Shop from "./pages/Shop";
+import ProductDetail from "./pages/ProductDetail";
+import EventDetail from "./pages/EventDetail";
 
 type Language = "DE" | "EN" | "KA";
 
@@ -37,6 +39,8 @@ function Router({ language, onLanguageChange }: RouterProps) {
   const CheckoutWrapper = () => <Checkout language={language} cartItems={[]} />;
   const ProductsWrapper = () => <Products language={language} />;
   const ShopWrapper = () => <Shop language={language} onLanguageChange={onLanguageChange} />;
+  const ProductDetailWrapper = ({ params }: any) => <ProductDetail language={language} productId={params.id} />;
+  const EventDetailWrapper = ({ params }: any) => <EventDetail language={language} eventId={params.id} />;
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -48,7 +52,9 @@ function Router({ language, onLanguageChange }: RouterProps) {
         <Switch>
           <Route path={"/"} component={HomeWrapper} />
           <Route path={"/products"} component={ProductsWrapper} />
+          <Route path={"/product/:id"} component={ProductDetailWrapper} />
           <Route path={"/shop"} component={ShopWrapper} />
+          <Route path={"/event/:id"} component={EventDetailWrapper} />
           <Route path={"/about"} component={AboutWrapper} />
           <Route path={"/events"} component={EventsWrapper} />
           <Route path={"/blog"} component={BlogWrapper} />
