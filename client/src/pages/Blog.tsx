@@ -94,13 +94,13 @@ export default function Blog({ language }: BlogProps) {
   const lang = labels[language];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <div className="border-b border-gray-100 sticky top-0 z-40 bg-white">
+      <div className="border-b border-border sticky top-0 z-40 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
           <button
             onClick={() => setLocation("/")}
-            className="p-2 hover:bg-gray-100 rounded-lg transition"
+            className="p-2 hover:bg-secondary rounded-lg transition"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
@@ -114,24 +114,24 @@ export default function Blog({ language }: BlogProps) {
           {articles.map((article) => (
             <article
               key={article.id}
-              className="border-b border-gray-100 pb-8 last:border-b-0"
+              className="border-b border-border pb-8 last:border-b-0"
             >
               <div className="flex flex-wrap gap-2 mb-3">
-                <div className="flex items-center gap-2 text-sm text-gray-500">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Calendar className="w-4 h-4" />
                   {new Date(article.date).toLocaleDateString(
                     language === "DE" ? "de-DE" : language === "EN" ? "en-US" : "ka-GE"
                   )}
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-500">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Tag className="w-4 h-4" />
                   {article.category}
                 </div>
               </div>
 
               <h2 className="text-2xl font-semibold mb-3">{article.title[language]}</h2>
-              <p className="text-gray-600 mb-4">{article.excerpt[language]}</p>
-              <p className="text-gray-600 leading-relaxed mb-4">{article.content[language]}</p>
+              <p className="text-muted-foreground mb-4">{article.excerpt[language]}</p>
+              <p className="text-muted-foreground leading-relaxed mb-4">{article.content[language]}</p>
 
               <button className="text-amber-900 font-medium hover:text-amber-800 transition">
                 {lang.readMore} →

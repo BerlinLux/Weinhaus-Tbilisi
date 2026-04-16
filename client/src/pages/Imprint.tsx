@@ -127,13 +127,13 @@ export default function Imprint({ language }: ImprintProps) {
   const lang = content[language];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <div className="border-b border-gray-100 sticky top-0 z-40 bg-white">
+      <div className="border-b border-border sticky top-0 z-40 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
           <button
             onClick={() => setLocation("/")}
-            className="p-2 hover:bg-gray-100 rounded-lg transition"
+            className="p-2 hover:bg-secondary rounded-lg transition"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
@@ -150,13 +150,13 @@ export default function Imprint({ language }: ImprintProps) {
               {section.items ? (
                 <div className="space-y-1">
                   {section.items.map((item, itemIdx) => (
-                    <p key={itemIdx} className="text-gray-600">
+                    <p key={itemIdx} className="text-muted-foreground">
                       {item}
                     </p>
                   ))}
                 </div>
               ) : (
-                <p className="text-gray-600 leading-relaxed">{section.text}</p>
+                <p className="text-muted-foreground leading-relaxed">{section.text}</p>
               )}
             </div>
           ))}

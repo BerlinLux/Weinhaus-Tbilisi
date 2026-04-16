@@ -114,13 +114,13 @@ export default function Events({ language }: EventsProps) {
   const lang = labels[language];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <div className="border-b border-gray-100 sticky top-0 z-40 bg-white">
+      <div className="border-b border-border sticky top-0 z-40 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
           <button
             onClick={() => setLocation("/")}
-            className="p-2 hover:bg-gray-100 rounded-lg transition"
+            className="p-2 hover:bg-secondary rounded-lg transition"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
@@ -136,7 +136,7 @@ export default function Events({ language }: EventsProps) {
           {events.map((event) => (
             <div
               key={event.id}
-              className="border border-gray-200 rounded-lg p-6 hover:border-gray-300 transition"
+              className="border border-border rounded-lg p-6 hover:border-border transition"
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                 <div>
@@ -150,7 +150,7 @@ export default function Events({ language }: EventsProps) {
                 <div className="text-right">
                   <p className="text-2xl font-semibold">€{event.price}</p>
                   {event.price === 0 && (
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-muted-foreground">
                       {language === "DE"
                         ? "Auf Anfrage"
                         : language === "EN"
@@ -161,13 +161,13 @@ export default function Events({ language }: EventsProps) {
                 </div>
               </div>
 
-              <p className="text-gray-600 mb-4">{event.description[language]}</p>
+              <p className="text-muted-foreground mb-4">{event.description[language]}</p>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6 py-4 border-y border-gray-100">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6 py-4 border-y border-border">
                 <div>
-                  <p className="text-xs text-gray-500 uppercase mb-1">{lang.date}</p>
+                  <p className="text-xs text-muted-foreground uppercase mb-1">{lang.date}</p>
                   <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-gray-400" />
+                    <Calendar className="w-4 h-4 text-muted-foreground" />
                     <p className="text-sm font-medium">
                       {new Date(event.date).toLocaleDateString(
                         language === "DE" ? "de-DE" : language === "EN" ? "en-US" : "ka-GE"
@@ -176,22 +176,22 @@ export default function Events({ language }: EventsProps) {
                   </div>
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500 uppercase mb-1">{lang.venue}</p>
+                  <p className="text-xs text-muted-foreground uppercase mb-1">{lang.venue}</p>
                   <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-gray-400" />
+                    <MapPin className="w-4 h-4 text-muted-foreground" />
                     <p className="text-sm font-medium">{event.venue[language]}</p>
                   </div>
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500 uppercase mb-1">{lang.seats}</p>
+                  <p className="text-xs text-muted-foreground uppercase mb-1">{lang.seats}</p>
                   <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4 text-gray-400" />
+                    <Users className="w-4 h-4 text-muted-foreground" />
                     <p className="text-sm font-medium">{event.seats}</p>
                   </div>
                 </div>
               </div>
 
-              <Button className="w-full md:w-auto bg-gray-900 text-white hover:bg-gray-800">
+              <Button className="w-full md:w-auto bg-accent text-accent-foreground hover:bg-accent/90">
                 {lang.reserve}
               </Button>
             </div>
@@ -199,8 +199,8 @@ export default function Events({ language }: EventsProps) {
         </div>
 
         {/* Contact CTA */}
-        <div className="mt-12 p-6 bg-gray-50 rounded-lg text-center">
-          <p className="text-gray-600 mb-4">
+        <div className="mt-12 p-6 bg-secondary rounded-lg text-center">
+          <p className="text-muted-foreground mb-4">
             {language === "DE"
               ? "Interessiert an einem privaten Tasting oder einer maßgeschneiderten Veranstaltung?"
               : language === "EN"

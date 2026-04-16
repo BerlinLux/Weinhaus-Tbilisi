@@ -106,13 +106,13 @@ export default function Terms({ language }: TermsProps) {
   const lang = content[language];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <div className="border-b border-gray-100 sticky top-0 z-40 bg-white">
+      <div className="border-b border-border sticky top-0 z-40 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
           <button
             onClick={() => setLocation("/")}
-            className="p-2 hover:bg-gray-100 rounded-lg transition"
+            className="p-2 hover:bg-secondary rounded-lg transition"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
@@ -122,13 +122,13 @@ export default function Terms({ language }: TermsProps) {
 
       {/* Content */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <p className="text-sm text-gray-500 mb-8">{lang.lastUpdated}</p>
+        <p className="text-sm text-muted-foreground mb-8">{lang.lastUpdated}</p>
 
         <div className="space-y-8">
           {lang.sections.map((section, idx) => (
             <div key={idx}>
               <h2 className="text-lg font-semibold mb-3">{section.heading}</h2>
-              <p className="text-gray-600 leading-relaxed">{section.text}</p>
+              <p className="text-muted-foreground leading-relaxed">{section.text}</p>
             </div>
           ))}
         </div>

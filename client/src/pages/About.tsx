@@ -83,13 +83,13 @@ export default function About({ language }: AboutProps) {
   const lang = content[language];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <div className="border-b border-gray-100 sticky top-0 z-40 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
+      <div className="border-b border-border sticky top-0 z-40 bg-background">
+        <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
           <button
             onClick={() => setLocation("/")}
-            className="p-2 hover:bg-gray-100 rounded-lg transition"
+            className="p-2 hover:bg-secondary rounded-lg transition"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
@@ -101,23 +101,23 @@ export default function About({ language }: AboutProps) {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-12">
           <h2 className="text-3xl md:text-4xl font-light mb-4">{lang.subtitle}</h2>
-          <div className="w-12 h-1 bg-amber-900"></div>
+          <div className="w-12 h-1 bg-accent"></div>
         </div>
 
         <div className="space-y-8">
           {lang.sections.map((section, idx) => (
             <div key={idx}>
               <h3 className="text-xl font-semibold mb-3">{section.heading}</h3>
-              <p className="text-gray-600 leading-relaxed">{section.text}</p>
+              <p className="text-muted-foreground leading-relaxed">{section.text}</p>
             </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="mt-16 pt-8 border-t border-gray-100">
+        <div className="mt-16 pt-8 border-t border-border">
           <Button
             onClick={() => setLocation("/")}
-            className="w-full md:w-auto bg-gray-900 text-white hover:bg-gray-800"
+            className="w-full md:w-auto bg-accent text-accent-foreground hover:bg-accent/90"
           >
             {language === "DE"
               ? "Zu den Produkten"

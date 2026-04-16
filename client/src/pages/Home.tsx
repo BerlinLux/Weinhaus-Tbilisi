@@ -318,7 +318,7 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
         <div className="mb-8 space-y-4">
           <div className="flex flex-col md:flex-row gap-3">
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
                 placeholder={
                   language === "DE"
@@ -365,7 +365,7 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
                     className={`px-3 py-1 text-xs rounded-full transition ${
                       selectedRegion === null
                         ? "bg-gray-900 text-white"
-                        : "bg-white border border-gray-200 hover:border-gray-300"
+                        : "bg-white border border-gray-200 hover:border-border"
                     }`}
                   >
                     {language === "DE" ? "Alle" : language === "EN" ? "All" : "ყველა"}
@@ -379,7 +379,7 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
                       className={`px-3 py-1 text-xs rounded-full transition ${
                         selectedRegion === region
                           ? "bg-gray-900 text-white"
-                          : "bg-white border border-gray-200 hover:border-gray-300"
+                          : "bg-white border border-gray-200 hover:border-border"
                       }`}
                     >
                       {region}
@@ -403,7 +403,7 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
                     className={`px-3 py-1 text-xs rounded-full transition ${
                       selectedCategory === null
                         ? "bg-gray-900 text-white"
-                        : "bg-white border border-gray-200 hover:border-gray-300"
+                        : "bg-white border border-gray-200 hover:border-border"
                     }`}
                   >
                     {language === "DE" ? "Alle" : language === "EN" ? "All" : "ყველა"}
@@ -417,7 +417,7 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
                       className={`px-3 py-1 text-xs rounded-full transition ${
                         selectedCategory === cat
                           ? "bg-gray-900 text-white"
-                          : "bg-white border border-gray-200 hover:border-gray-300"
+                          : "bg-white border border-gray-200 hover:border-border"
                       }`}
                     >
                       {getCategoryLabel(cat)}
@@ -437,13 +437,13 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
               : language === "EN"
               ? "Products"
               : "პროდუქტები"}
-            <span className="text-gray-400 ml-2">({filteredProducts.length})</span>
+            <span className="text-muted-foreground ml-2">({filteredProducts.length})</span>
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
-                className="group border border-gray-200 rounded-lg overflow-hidden hover:border-gray-300 transition"
+                className="group border border-gray-200 rounded-lg overflow-hidden hover:border-border transition"
               >
                 {/* Image */}
                 <div className="relative h-64 bg-gray-100 overflow-hidden">
@@ -457,7 +457,7 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
                 {/* Content */}
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs text-gray-500 mb-1">{product.region}</p>
+                    <p className="text-xs text-muted-foreground mb-1">{product.region}</p>
                     <h4 className="text-sm font-semibold line-clamp-2">
                       {product.name[language]}
                     </h4>
@@ -499,7 +499,7 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
             {events.map((event) => (
               <div
                 key={event.id}
-                className="flex gap-4 p-4 border border-gray-200 rounded-lg hover:border-gray-300 transition group cursor-pointer"
+                className="flex gap-4 p-4 border border-gray-200 rounded-lg hover:border-border transition group cursor-pointer"
               >
                 <img
                   src={event.image}
@@ -511,7 +511,7 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
                     <h4 className="text-sm font-semibold mb-1">
                       {event.name[language]}
                     </h4>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-muted-foreground">
                       {new Date(event.date).toLocaleDateString(
                         language === "DE" ? "de-DE" : language === "EN" ? "en-US" : "ka-GE"
                       )}
@@ -519,7 +519,7 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-semibold">€{event.price}</span>
-                    <span className="text-xs text-gray-500">{event.seats} seats</span>
+                    <span className="text-xs text-muted-foreground">{event.seats} seats</span>
                   </div>
                 </div>
               </div>
@@ -573,7 +573,7 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
               <p className="text-sm text-gray-600">Instagram • Facebook</p>
             </div>
           </div>
-          <div className="border-t border-gray-200 pt-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+          <div className="border-t border-gray-200 pt-4 flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground">
             <p>© 2026 Georgian Wine Berlin. All rights reserved.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <a href="/privacy" className="hover:text-gray-700 transition">

@@ -183,13 +183,13 @@ export default function Reservation({ language }: ReservationProps) {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <div className="border-b border-gray-100 sticky top-0 z-40 bg-white">
+      <div className="border-b border-border sticky top-0 z-40 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
           <button
             onClick={() => setLocation("/")}
-            className="p-2 hover:bg-gray-100 rounded-lg transition"
+            className="p-2 hover:bg-secondary rounded-lg transition"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
@@ -210,8 +210,8 @@ export default function Reservation({ language }: ReservationProps) {
                   onClick={() => setSelectedEventId(event.id)}
                   className={`cursor-pointer border-2 rounded-lg overflow-hidden transition ${
                     selectedEventId === event.id
-                      ? "border-gray-900 bg-gray-50"
-                      : "border-gray-200 hover:border-gray-300"
+                      ? "border-gray-900 bg-secondary"
+                      : "border-border hover:border-border"
                   }`}
                 >
                   <img
@@ -223,7 +223,7 @@ export default function Reservation({ language }: ReservationProps) {
                     <h3 className="font-semibold text-sm mb-2">
                       {event.name[language]}
                     </h3>
-                    <div className="space-y-1 text-xs text-gray-600">
+                    <div className="space-y-1 text-xs text-muted-foreground">
                       <div className="flex items-center gap-2">
                         <Calendar className="w-4 h-4" />
                         {new Date(event.date).toLocaleDateString(
@@ -258,15 +258,15 @@ export default function Reservation({ language }: ReservationProps) {
 
           {/* Event Details and Attendees */}
           {selectedEvent && (
-            <div className="bg-gray-50 p-6 rounded-lg space-y-4">
+            <div className="bg-secondary p-6 rounded-lg space-y-4">
               <h3 className="font-semibold">{selectedEvent.name[language]}</h3>
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <p className="text-gray-600">{lang.venue}</p>
+                  <p className="text-muted-foreground">{lang.venue}</p>
                   <p className="font-medium">{selectedEvent.venue[language]}</p>
                 </div>
                 <div>
-                  <p className="text-gray-600">{lang.date}</p>
+                  <p className="text-muted-foreground">{lang.date}</p>
                   <p className="font-medium">
                     {new Date(selectedEvent.date).toLocaleDateString(
                       language === "DE" ? "de-DE" : language === "EN" ? "en-US" : "ka-GE"
@@ -286,15 +286,15 @@ export default function Reservation({ language }: ReservationProps) {
                   max={selectedEvent.seats}
                   value={attendees}
                   onChange={(e) => setAttendees(Math.max(1, parseInt(e.target.value) || 1))}
-                  className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900"
+                  className="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900"
                 />
               </div>
 
               {/* Price Calculation */}
               {selectedEvent.price > 0 && (
-                <div className="border-t border-gray-200 pt-4">
+                <div className="border-t border-border pt-4">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-gray-600">
+                    <span className="text-muted-foreground">
                       €{selectedEvent.price} × {attendees} {lang.perPerson}
                     </span>
                     <span className="text-lg font-semibold">€{totalPrice}</span>
@@ -319,7 +319,7 @@ export default function Reservation({ language }: ReservationProps) {
                     value={formData.firstName}
                     onChange={handleChange}
                     required
-                    className="border-gray-200"
+                    className="border-border"
                   />
                 </div>
                 <div>
@@ -331,7 +331,7 @@ export default function Reservation({ language }: ReservationProps) {
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
-                    className="border-gray-200"
+                    className="border-border"
                   />
                 </div>
               </div>
@@ -347,7 +347,7 @@ export default function Reservation({ language }: ReservationProps) {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="border-gray-200"
+                    className="border-border"
                   />
                 </div>
                 <div>
@@ -359,7 +359,7 @@ export default function Reservation({ language }: ReservationProps) {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="border-gray-200"
+                    className="border-border"
                   />
                 </div>
               </div>
@@ -370,7 +370,7 @@ export default function Reservation({ language }: ReservationProps) {
           <div className="flex gap-4">
             <Button
               type="submit"
-              className="flex-1 bg-gray-900 text-white hover:bg-gray-800"
+              className="flex-1 bg-accent text-accent-foreground hover:bg-accent/90"
             >
               {lang.reserve}
             </Button>

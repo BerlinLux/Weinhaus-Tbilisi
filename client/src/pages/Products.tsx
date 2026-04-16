@@ -183,14 +183,14 @@ export default function Products({ language }: ProductsProps) {
   const lang = labels[language];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-gray-100 bg-white">
+      <header className="sticky top-0 z-40 border-b border-border bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button
               onClick={() => setLocation("/")}
-              className="p-2 hover:bg-gray-100 rounded-lg transition"
+              className="p-2 hover:bg-secondary rounded-lg transition"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
@@ -205,18 +205,18 @@ export default function Products({ language }: ProductsProps) {
         <div className="mb-8 space-y-4">
           <div className="flex gap-2">
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+              <Search className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" />
               <Input
                 type="text"
                 placeholder={lang.search}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 border-gray-200"
+                className="pl-10 border-border"
               />
             </div>
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition flex items-center gap-2"
+              className="px-4 py-2 border border-border rounded-lg hover:bg-secondary transition flex items-center gap-2"
             >
               <Filter className="w-4 h-4" />
               {lang.filter}
@@ -225,7 +225,7 @@ export default function Products({ language }: ProductsProps) {
 
           {/* Filters */}
           {showFilters && (
-            <div className="p-4 bg-gray-50 rounded-lg space-y-4">
+            <div className="p-4 bg-secondary rounded-lg space-y-4">
               <div>
                 <label className="block text-sm font-medium mb-2">{lang.region}</label>
                 <div className="flex flex-wrap gap-2">
@@ -233,8 +233,8 @@ export default function Products({ language }: ProductsProps) {
                     onClick={() => setSelectedRegion(null)}
                     className={`px-3 py-1 rounded-lg text-sm transition ${
                       selectedRegion === null
-                        ? "bg-gray-900 text-white"
-                        : "bg-white border border-gray-200 hover:bg-gray-50"
+                        ? "bg-accent text-accent-foreground"
+                        : "bg-background border border-border hover:bg-secondary"
                     }`}
                   >
                     {language === "DE" ? "Alle" : language === "EN" ? "All" : "ყველა"}
@@ -245,8 +245,8 @@ export default function Products({ language }: ProductsProps) {
                       onClick={() => setSelectedRegion(region)}
                       className={`px-3 py-1 rounded-lg text-sm transition ${
                         selectedRegion === region
-                          ? "bg-gray-900 text-white"
-                          : "bg-white border border-gray-200 hover:bg-gray-50"
+                          ? "bg-accent text-accent-foreground"
+                          : "bg-background border border-border hover:bg-secondary"
                       }`}
                     >
                       {region}
@@ -262,8 +262,8 @@ export default function Products({ language }: ProductsProps) {
                     onClick={() => setSelectedCategory(null)}
                     className={`px-3 py-1 rounded-lg text-sm transition ${
                       selectedCategory === null
-                        ? "bg-gray-900 text-white"
-                        : "bg-white border border-gray-200 hover:bg-gray-50"
+                        ? "bg-accent text-accent-foreground"
+                        : "bg-background border border-border hover:bg-secondary"
                     }`}
                   >
                     {language === "DE" ? "Alle" : language === "EN" ? "All" : "ყველა"}
@@ -274,8 +274,8 @@ export default function Products({ language }: ProductsProps) {
                       onClick={() => setSelectedCategory(cat)}
                       className={`px-3 py-1 rounded-lg text-sm transition ${
                         selectedCategory === cat
-                          ? "bg-gray-900 text-white"
-                          : "bg-white border border-gray-200 hover:bg-gray-50"
+                          ? "bg-accent text-accent-foreground"
+                          : "bg-background border border-border hover:bg-secondary"
                       }`}
                     >
                       {getCategoryLabel(cat)}
@@ -290,12 +290,12 @@ export default function Products({ language }: ProductsProps) {
         {/* Products Grid */}
         {filteredProducts.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-500">{lang.noResults}</p>
+            <p className="text-muted-foreground">{lang.noResults}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProducts.map((product) => (
-              <div key={product.id} className="bg-white border border-gray-100 rounded-lg overflow-hidden hover:shadow-md transition">
+              <div key={product.id} className="bg-background border border-border rounded-lg overflow-hidden hover:shadow-md transition">
                 <img
                   src={product.image}
                   alt={product.name[language]}
@@ -308,7 +308,7 @@ export default function Products({ language }: ProductsProps) {
                       {getCategoryLabel(product.category)}
                     </Badge>
                   </div>
-                  <p className="text-xs text-gray-500 mb-3">{product.region}</p>
+                  <p className="text-xs text-muted-foreground mb-3">{product.region}</p>
                   <div className="flex items-center justify-between">
                     <span className="font-semibold">€{product.price}</span>
                     <Button
@@ -316,7 +316,7 @@ export default function Products({ language }: ProductsProps) {
                         toast.success(`${product.name[language]} ${language === "DE" ? "hinzugefügt" : language === "EN" ? "added" : "დამატებულია"}`);
                       }}
                       size="sm"
-                      className="bg-gray-900 text-white hover:bg-gray-800"
+                      className="bg-accent text-accent-foreground hover:bg-accent/90"
                     >
                       {lang.addToCart}
                     </Button>

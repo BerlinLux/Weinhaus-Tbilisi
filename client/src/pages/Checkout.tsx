@@ -169,12 +169,12 @@ export default function Checkout({
 
   if (cartItems.length === 0) {
     return (
-      <div className="min-h-screen bg-white text-gray-900">
-        <div className="border-b border-gray-100 sticky top-0 z-40 bg-white">
+      <div className="min-h-screen bg-background text-foreground">
+        <div className="border-b border-border sticky top-0 z-40 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
             <button
               onClick={() => setLocation("/")}
-              className="p-2 hover:bg-gray-100 rounded-lg transition"
+              className="p-2 hover:bg-secondary rounded-lg transition"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
@@ -183,10 +183,10 @@ export default function Checkout({
         </div>
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
-          <p className="text-gray-600 mb-6">{lang.empty}</p>
+          <p className="text-muted-foreground mb-6">{lang.empty}</p>
           <Button
             onClick={() => setLocation("/")}
-            className="bg-gray-900 text-white hover:bg-gray-800"
+            className="bg-accent text-accent-foreground hover:bg-accent/90"
           >
             {language === "DE"
               ? "Zum Einkaufen"
@@ -200,13 +200,13 @@ export default function Checkout({
   }
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <div className="border-b border-gray-100 sticky top-0 z-40 bg-white">
+      <div className="border-b border-border sticky top-0 z-40 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
           <button
             onClick={() => setLocation("/")}
-            className="p-2 hover:bg-gray-100 rounded-lg transition"
+            className="p-2 hover:bg-secondary rounded-lg transition"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
@@ -232,7 +232,7 @@ export default function Checkout({
                     value={formData.firstName}
                     onChange={handleChange}
                     required
-                    className="border-gray-200"
+                    className="border-border"
                   />
                 </div>
                 <div>
@@ -244,7 +244,7 @@ export default function Checkout({
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
-                    className="border-gray-200"
+                    className="border-border"
                   />
                 </div>
               </div>
@@ -260,7 +260,7 @@ export default function Checkout({
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="border-gray-200"
+                    className="border-border"
                   />
                 </div>
                 <div>
@@ -272,7 +272,7 @@ export default function Checkout({
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="border-gray-200"
+                    className="border-border"
                   />
                 </div>
               </div>
@@ -287,7 +287,7 @@ export default function Checkout({
                   value={formData.address}
                   onChange={handleChange}
                   required
-                  className="border-gray-200"
+                  className="border-border"
                 />
               </div>
 
@@ -301,7 +301,7 @@ export default function Checkout({
                     name="city"
                     value={formData.city}
                     onChange={handleChange}
-                    className="border-gray-200"
+                    className="border-border"
                   />
                 </div>
                 <div>
@@ -313,7 +313,7 @@ export default function Checkout({
                     name="postalCode"
                     value={formData.postalCode}
                     onChange={handleChange}
-                    className="border-gray-200"
+                    className="border-border"
                   />
                 </div>
                 <div>
@@ -324,7 +324,7 @@ export default function Checkout({
                     name="country"
                     value={formData.country}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-900"
+                    className="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-900"
                   >
                     <option>Germany</option>
                     <option>Austria</option>
@@ -335,7 +335,7 @@ export default function Checkout({
 
               <Button
                 type="submit"
-                className="w-full bg-gray-900 text-white hover:bg-gray-800 mt-6"
+                className="w-full bg-accent text-accent-foreground hover:bg-accent/90 mt-6"
               >
                 {lang.completeOrder}
               </Button>
@@ -344,10 +344,10 @@ export default function Checkout({
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <div className="bg-gray-50 rounded-lg p-6 sticky top-24">
+            <div className="bg-secondary rounded-lg p-6 sticky top-24">
               <h3 className="text-lg font-semibold mb-4">{lang.orderSummary}</h3>
 
-              <div className="space-y-3 mb-6 border-b border-gray-200 pb-6">
+              <div className="space-y-3 mb-6 border-b border-border pb-6">
                 {cartItems.map((item) => (
                   <div key={item.id} className="flex justify-between text-sm">
                     <div className="flex-1">
@@ -386,7 +386,7 @@ export default function Checkout({
                   <span>{lang.shipping}</span>
                   <span>{shipping === 0 ? "FREE" : `€${shipping.toFixed(2)}`}</span>
                 </div>
-                <div className="flex justify-between font-semibold text-base border-t border-gray-200 pt-2">
+                <div className="flex justify-between font-semibold text-base border-t border-border pt-2">
                   <span>{lang.total}</span>
                   <span>€{total.toFixed(2)}</span>
                 </div>

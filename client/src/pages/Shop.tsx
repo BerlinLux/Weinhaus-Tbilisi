@@ -103,14 +103,14 @@ export default function Shop({ language, onLanguageChange }: ShopProps) {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <div className="border-b border-gray-100 sticky top-0 z-40 bg-white">
+      <div className="border-b border-border sticky top-0 z-40 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button
               onClick={() => setLocation("/")}
-              className="p-2 hover:bg-gray-100 rounded-lg transition"
+              className="p-2 hover:bg-secondary rounded-lg transition"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
@@ -118,15 +118,15 @@ export default function Shop({ language, onLanguageChange }: ShopProps) {
           </div>
 
           {/* Language Selector */}
-          <div className="flex gap-1 border border-gray-200 rounded-lg p-1">
+          <div className="flex gap-1 border border-border rounded-lg p-1">
             {(["DE", "EN", "KA"] as Language[]).map((lang_code) => (
               <button
                 key={lang_code}
                 onClick={() => onLanguageChange?.(lang_code)}
                 className={`px-2 py-1 text-xs font-medium rounded transition ${
                   language === lang_code
-                    ? "bg-gray-900 text-white"
-                    : "text-gray-600 hover:text-gray-900"
+                    ? "bg-accent text-accent-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {lang_code}
@@ -141,7 +141,7 @@ export default function Shop({ language, onLanguageChange }: ShopProps) {
         {/* Hero Section */}
         <div className="mb-12">
           <h2 className="text-3xl font-light mb-4">{lang.subtitle}</h2>
-          <p className="text-gray-600 max-w-2xl">{lang.description}</p>
+          <p className="text-muted-foreground max-w-2xl">{lang.description}</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -152,20 +152,20 @@ export default function Shop({ language, onLanguageChange }: ShopProps) {
               <h3 className="text-xl font-semibold mb-6">{lang.contact}</h3>
               <div className="space-y-4">
                 <div className="flex gap-3">
-                  <MapPin className="w-5 h-5 text-gray-400 flex-shrink-0 mt-1" />
+                  <MapPin className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-1" />
                   <div>
-                    <p className="text-sm text-gray-600">{lang.address}</p>
+                    <p className="text-sm text-muted-foreground">{lang.address}</p>
                     <p className="font-medium">{shopInfo.address}</p>
                   </div>
                 </div>
 
                 <div className="flex gap-3">
-                  <Phone className="w-5 h-5 text-gray-400 flex-shrink-0 mt-1" />
+                  <Phone className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-1" />
                   <div>
-                    <p className="text-sm text-gray-600">{lang.phone}</p>
+                    <p className="text-sm text-muted-foreground">{lang.phone}</p>
                     <a
                       href={`tel:${shopInfo.phone}`}
-                      className="font-medium hover:text-gray-600 transition"
+                      className="font-medium hover:text-muted-foreground transition"
                     >
                       {shopInfo.phone}
                     </a>
@@ -173,12 +173,12 @@ export default function Shop({ language, onLanguageChange }: ShopProps) {
                 </div>
 
                 <div className="flex gap-3">
-                  <Mail className="w-5 h-5 text-gray-400 flex-shrink-0 mt-1" />
+                  <Mail className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-1" />
                   <div>
-                    <p className="text-sm text-gray-600">{lang.email}</p>
+                    <p className="text-sm text-muted-foreground">{lang.email}</p>
                     <a
                       href={`mailto:${shopInfo.email}`}
-                      className="font-medium hover:text-gray-600 transition"
+                      className="font-medium hover:text-muted-foreground transition"
                     >
                       {shopInfo.email}
                     </a>
@@ -186,14 +186,14 @@ export default function Shop({ language, onLanguageChange }: ShopProps) {
                 </div>
 
                 <div className="flex gap-3">
-                  <Globe className="w-5 h-5 text-gray-400 flex-shrink-0 mt-1" />
+                  <Globe className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-1" />
                   <div>
-                    <p className="text-sm text-gray-600">{lang.website}</p>
+                    <p className="text-sm text-muted-foreground">{lang.website}</p>
                     <a
                       href={`https://${shopInfo.website}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-medium hover:text-gray-600 transition"
+                      className="font-medium hover:text-muted-foreground transition"
                     >
                       {shopInfo.website}
                     </a>
@@ -207,9 +207,9 @@ export default function Shop({ language, onLanguageChange }: ShopProps) {
               <h3 className="text-xl font-semibold mb-6">{lang.hours}</h3>
               <div className="space-y-2">
                 {shopInfo.hours.map((hour, idx) => (
-                  <div key={idx} className="flex justify-between items-center py-2 border-b border-gray-100">
+                  <div key={idx} className="flex justify-between items-center py-2 border-b border-border">
                     <span className="text-sm font-medium">{hour.day}</span>
-                    <span className="text-sm text-gray-600">{hour.time}</span>
+                    <span className="text-sm text-muted-foreground">{hour.time}</span>
                   </div>
                 ))}
               </div>
@@ -223,7 +223,7 @@ export default function Shop({ language, onLanguageChange }: ShopProps) {
                 rel="noopener noreferrer"
                 className="inline-block"
               >
-                <Button className="bg-gray-900 text-white hover:bg-gray-800 w-full">
+                <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full">
                   <MapPin className="w-4 h-4 mr-2" />
                   {lang.directions}
                 </Button>
@@ -232,7 +232,7 @@ export default function Shop({ language, onLanguageChange }: ShopProps) {
           </div>
 
           {/* Right: Map */}
-          <div className="bg-gray-100 rounded-lg overflow-hidden h-96 lg:h-full min-h-96">
+          <div className="bg-secondary rounded-lg overflow-hidden h-96 lg:h-full min-h-96">
             <iframe
               width="100%"
               height="100%"
@@ -246,7 +246,7 @@ export default function Shop({ language, onLanguageChange }: ShopProps) {
         </div>
 
         {/* Additional Info */}
-        <div className="mt-12 p-6 bg-gray-50 rounded-lg">
+        <div className="mt-12 p-6 bg-secondary rounded-lg">
           <h3 className="font-semibold mb-3">
             {language === "DE"
               ? "Besonderheiten"
@@ -254,7 +254,7 @@ export default function Shop({ language, onLanguageChange }: ShopProps) {
               ? "Highlights"
               : "მახასიათებლები"}
           </h3>
-          <ul className="space-y-2 text-sm text-gray-600">
+          <ul className="space-y-2 text-sm text-muted-foreground">
             <li>
               {language === "DE"
                 ? "✓ Kuratierte Auswahl georgischer Weine"
