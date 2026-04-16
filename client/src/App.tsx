@@ -19,6 +19,7 @@ import Products from "./pages/Products";
 import Shop from "./pages/Shop";
 import ProductDetail from "./pages/ProductDetail";
 import EventDetail from "./pages/EventDetail";
+import Profile from "./pages/Profile";
 
 type Language = "DE" | "EN" | "KA";
 
@@ -41,6 +42,7 @@ function Router({ language, onLanguageChange }: RouterProps) {
   const ShopWrapper = () => <Shop language={language} onLanguageChange={onLanguageChange} />;
   const ProductDetailWrapper = ({ params }: any) => <ProductDetail language={language} productId={params.id} />;
   const EventDetailWrapper = ({ params }: any) => <EventDetail language={language} eventId={params.id} />;
+  const ProfileWrapper = () => <Profile language={language} onLanguageChange={onLanguageChange} />;
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -63,6 +65,7 @@ function Router({ language, onLanguageChange }: RouterProps) {
           <Route path={"/terms"} component={TermsWrapper} />
           <Route path={"/imprint"} component={ImprintWrapper} />
           <Route path={"/checkout"} component={CheckoutWrapper} />
+          <Route path={"/profile"} component={ProfileWrapper} />
           <Route path={"/404"} component={NotFound} />
           {/* Final fallback route */}
           <Route component={NotFound} />

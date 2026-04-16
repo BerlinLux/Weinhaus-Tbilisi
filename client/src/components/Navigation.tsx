@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { ShoppingCart, Menu, X, Globe } from "lucide-react";
+import { ShoppingCart, Menu, X, User, LogOut } from "lucide-react";
 import { useLocation } from "wouter";
+import { useAuth } from "@/_core/hooks/useAuth";
+import { getLoginUrl } from "@/const";
 
 type Language = "DE" | "EN" | "KA";
 
@@ -12,7 +14,9 @@ interface NavigationProps {
 
 export default function Navigation({ language, onLanguageChange, cartCount = 0 }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [, setLocation] = useLocation();
+  const { user, logout } = useAuth();
 
   const navItems = {
     DE: {
@@ -22,6 +26,9 @@ export default function Navigation({ language, onLanguageChange, cartCount = 0 }
       events: "Events",
       blog: "Blog",
       reservation: "Reservierung",
+      login: "Anmelden",
+      profile: "Profil",
+      logout: "Abmelden",
     },
     EN: {
       products: "Products",
@@ -30,6 +37,9 @@ export default function Navigation({ language, onLanguageChange, cartCount = 0 }
       events: "Events",
       blog: "Blog",
       reservation: "Reservation",
+      login: "Login",
+      profile: "Profile",
+      logout: "Logout",
     },
     KA: {
       products: "პროდუქტები",
@@ -38,6 +48,9 @@ export default function Navigation({ language, onLanguageChange, cartCount = 0 }
       events: "ღონისძიებები",
       blog: "ბლოგი",
       reservation: "რეზერვაცია",
+      login: "შესვლა",
+      profile: "პროფილი",
+      logout: "გამოსვლა",
     },
   };
 
@@ -131,6 +144,49 @@ export default function Navigation({ language, onLanguageChange, cartCount = 0 }
               </span>
             )}
           </button>
+
+          {/* User Menu */}
+          {user ? (
+            <div className="relative">
+              <button
+                onClick={() => setUserMenuOpen(!userMenuOpen)}
+                className="p-2 hover:bg-secondary rounded-lg transition"
+              >
+                <User className="w-5 h-5" />
+              </button>
+              {userMenuOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-background border border-border rounded-lg shadow-lg z-50">
+                  <button
+                    onClick={() => {
+                      handleNavClick("/profile");
+                      setUserMenuOpen(false);
+                    }}
+                    className="w-full text-left px-4 py-2 text-sm hover:bg-secondary transition"
+                  >
+                    {items.profile}
+                  </button>
+                  <button
+                    onClick={() => {
+                      logout();
+                      setUserMenuOpen(false);
+                      setLocation("/");
+                    }}
+                    className="w-full text-left px-4 py-2 text-sm hover:bg-secondary transition flex items-center gap-2 border-t border-border"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    {items.logout}
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <a
+              href={getLoginUrl()}
+              className="px-3 py-2 text-sm font-medium bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition"
+            >
+              {items.login}
+            </a>
+          )}
 
           {/* Mobile Menu */}
           <button

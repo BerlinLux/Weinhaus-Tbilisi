@@ -123,3 +123,17 @@
 - [x] Add routing for product and event detail pages in App.tsx
 - [x] Test product detail functionality
 - [x] Test event detail functionality
+
+
+## User Authentication — Complete
+
+- [x] Add login button to Navigation component
+- [x] Implement Manus OAuth login flow (redirect to portal)
+- [x] Add user profile dropdown menu (profile, orders, logout)
+- [x] Create user Profile/Dashboard page
+- [x] Display user info (name, email, order history)
+- [x] Add order history view
+- [x] Add account settings page
+- [x] Wire authentication to cart persistence
+- [x] Wire authentication to reservation history
+- [x] Test complete authentication flow
