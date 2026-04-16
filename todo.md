@@ -181,4 +181,4 @@
 
 - [x] Create notification context for custom alerts
 - [x] Add notification display component
-- [ ] Wire notifications to key user actions (add to cart, form submissions, etc.)
+- [x] Wire notifications to key user actions (add to cart, form submissions, etc.)

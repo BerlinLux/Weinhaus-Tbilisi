@@ -4,8 +4,8 @@ import { Search, Filter, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
+import { useNotification } from "@/contexts/NotificationContext";
 
 type Language = "DE" | "EN" | "KA";
 type ProductCategory = "bottle" | "barrel" | "qvevri" | "voucher";
@@ -115,6 +115,7 @@ export default function Products({ language }: ProductsProps) {
   const [selectedCategory, setSelectedCategory] = useState<ProductCategory | null>(null);
   const [showFilters, setShowFilters] = useState(false);
   const { addItem } = useCart();
+  const { addNotification } = useNotification();
 
   const addToCart = (product: Product) => {
     addItem({
@@ -123,6 +124,12 @@ export default function Products({ language }: ProductsProps) {
       price: product.price,
       quantity: 1,
       category: product.category,
+    });
+    addNotification({
+      type: "success",
+      title: language === "DE" ? "Hinzugefügt" : language === "EN" ? "Added" : "დამატებულია",
+      message: `${product.name[language]} ${language === "DE" ? "zum Warenkorb hinzugefügt" : language === "EN" ? "added to cart" : "კალათში დამატებულია"}`,
+      duration: 2000,
     });
   };
 
@@ -316,10 +323,8 @@ export default function Products({ language }: ProductsProps) {
                   <div className="flex items-center justify-between">
                     <span className="font-semibold">€{product.price}</span>
                     <Button
-                      onClick={(e) => {
-                        e.stopPropagation();
+                      onClick={() => {
                         addToCart(product);
-                        toast.success(`${product.name[language]} ${language === "DE" ? "hinzugefügt" : language === "EN" ? "added" : "დამატებულია"}`);
                       }}
                       size="sm"
                       className="bg-accent text-accent-foreground hover:bg-accent/90"
