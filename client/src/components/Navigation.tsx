@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ShoppingCart, Menu, X, User, LogOut } from "lucide-react";
 import { useLocation } from "wouter";
 import { useAuth } from "@/_core/hooks/useAuth";
+import { useCart } from "@/contexts/CartContext";
 import { getLoginUrl } from "@/const";
 
 type Language = "DE" | "EN" | "KA";
@@ -9,14 +10,15 @@ type Language = "DE" | "EN" | "KA";
 interface NavigationProps {
   language: Language;
   onLanguageChange: (lang: Language) => void;
-  cartCount?: number;
 }
 
-export default function Navigation({ language, onLanguageChange, cartCount = 0 }: NavigationProps) {
+export default function Navigation({ language, onLanguageChange }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [, setLocation] = useLocation();
   const { user, logout } = useAuth();
+  const { items: cartItems } = useCart();
+  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const navItems = {
     DE: {

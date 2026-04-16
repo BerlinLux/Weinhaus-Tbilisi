@@ -48,12 +48,10 @@ function Router({ language, onLanguageChange }: RouterProps) {
   const EventDetailWrapper = ({ params }: any) => <EventDetail language={language} eventId={params.id} />;
   const ProfileWrapper = () => <Profile language={language} onLanguageChange={onLanguageChange} />;
   const WineClubWrapper = () => <WineClub language={language} />;
+  const NavigationWrapper = () => <Navigation language={language} onLanguageChange={onLanguageChange} />;
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Shared Navigation */}
-      <Navigation language={language} onLanguageChange={onLanguageChange} cartCount={0} />
-
       {/* Page Content */}
       <main className="flex-1">
         <Switch>

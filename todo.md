@@ -164,17 +164,11 @@
 
 - [x] Connect cart to persistent storage (localStorage) for better UX
 
-## Next Steps
-
-- [ ] Add Stripe payment integration for product purchases and wine club membership
-
-
 ## Cart Integration — Complete
 
 - [x] Wire Products page to use CartContext for add to cart
 - [x] Wire Checkout page to display items from CartContext
-- [ ] Add cart display in navigation header
-- [ ] Add frontend tests for cart persistence
+- [x] Add cart display in navigation header
 
 
 ## Custom Notifications — Complete
@@ -182,3 +176,16 @@
 - [x] Create notification context for custom alerts
 - [x] Add notification display component
 - [x] Wire notifications to key user actions (add to cart, form submissions, etc.)
+
+
+## Stripe Integration — Pending
+
+- [ ] Add Stripe payment integration for product purchases and wine club membership
+- [ ] Create checkout session handler
+- [ ] Implement webhook for payment confirmation
+- [ ] Add payment history page
+
+
+## Frontend Tests — Pending
+
+- [ ] Add frontend tests for cart persistence (localStorage)
