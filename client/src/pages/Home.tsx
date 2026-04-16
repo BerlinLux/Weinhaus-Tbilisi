@@ -262,8 +262,11 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-gray-100 bg-gray-50 p-4 space-y-3">
-            <a href="/" className="block text-sm hover:text-amber-900">
+            <a href="/products" className="block text-sm hover:text-amber-900">
               {language === "DE" ? "Produkte" : language === "EN" ? "Products" : "პროდუქტები"}
+            </a>
+            <a href="/shop" className="block text-sm hover:text-amber-900">
+              {language === "DE" ? "Mägazin & Bar" : language === "EN" ? "Shop & Bar" : "მაღაზია & ბარი"}
             </a>
             <a href="/about" className="block text-sm hover:text-amber-900">
               {language === "DE" ? "Über uns" : language === "EN" ? "About" : "ჩვენ შესახებ"}
@@ -539,6 +542,22 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
                   ? "Premium Georgian wines in Berlin"
                   : "პრემიუმ ქართული ღვინე ბერლინში"}
               </p>
+            </div>
+            <div>
+              <p className="text-xs font-semibold text-gray-600 uppercase mb-3">
+                {language === "DE" ? "Navigation" : language === "EN" ? "Navigation" : "ნავიგაცია"}
+              </p>
+              <div className="space-y-2 text-sm">
+                <a href="/products" className="block text-gray-600 hover:text-gray-900 transition">
+                  {language === "DE" ? "Produkte" : language === "EN" ? "Products" : "პროდუქტები"}
+                </a>
+                <a href="/shop" className="block text-gray-600 hover:text-gray-900 transition">
+                  {language === "DE" ? "Mägazin & Bar" : language === "EN" ? "Shop & Bar" : "მაღაზია & ბარი"}
+                </a>
+                <a href="/events" className="block text-gray-600 hover:text-gray-900 transition">
+                  {language === "DE" ? "Events" : language === "EN" ? "Events" : "ღონისძიებები"}
+                </a>
+              </div>
             </div>
             <div>
               <p className="text-xs font-semibold text-gray-600 uppercase mb-3">
