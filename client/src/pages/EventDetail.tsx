@@ -122,14 +122,6 @@ export default function EventDetail({ language, eventId }: EventDetailProps) {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Back Button */}
-        <button
-          onClick={() => setLocation("/events")}
-          className="mb-8 text-accent hover:text-accent/80 transition font-medium"
-        >
-          ← {lang.backToEvents}
-        </button>
-
         {/* Event Detail */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Image */}

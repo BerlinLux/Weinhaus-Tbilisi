@@ -102,16 +102,16 @@
 
 ## Back Button Removal
 
-- [ ] Remove back button from Products page
-- [ ] Remove back button from Shop page  
-- [ ] Remove back button from About page
-- [ ] Remove back button from Events page
-- [ ] Remove back button from Blog page
-- [ ] Remove back button from Reservation page
-- [ ] Remove back button from Checkout page
-- [ ] Remove back button from Privacy page
-- [ ] Remove back button from Terms page
-- [ ] Remove back button from Imprint page
+- [x] Remove back button from Products page
+- [x] Remove back button from Shop page  
+- [x] Remove back button from About page
+- [x] Remove back button from Events page
+- [x] Remove back button from Blog page
+- [x] Remove back button from Reservation page
+- [x] Remove back button from Checkout page
+- [x] Remove back button from Privacy page
+- [x] Remove back button from Terms page
+- [x] Remove back button from Imprint page
 
 
 ## Bug Fixes — Complete

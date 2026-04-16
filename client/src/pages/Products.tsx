@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { useLocation } from "wouter";
-import { ArrowLeft, Search, Filter, X, ChevronDown } from "lucide-react";
+import { Search, Filter, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -187,15 +187,7 @@ export default function Products({ language }: ProductsProps) {
       {/* Header */}
       <header className="sticky top-0 z-40 border-b border-border bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setLocation("/")}
-              className="p-2 hover:bg-secondary rounded-lg transition"
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </button>
-            <h1 className="text-lg font-semibold tracking-tight">{lang.title}</h1>
-          </div>
+          <h1 className="text-lg font-semibold tracking-tight">{lang.title}</h1>
         </div>
       </header>
 

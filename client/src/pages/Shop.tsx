@@ -1,5 +1,5 @@
 import { useLocation } from "wouter";
-import { ArrowLeft, MapPin, Phone, Mail, Clock, Globe } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type Language = "DE" | "EN" | "KA";
@@ -107,15 +107,7 @@ export default function Shop({ language, onLanguageChange }: ShopProps) {
       {/* Header */}
       <div className="border-b border-border sticky top-0 z-40 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setLocation("/")}
-              className="p-2 hover:bg-secondary rounded-lg transition"
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </button>
-            <h1 className="text-lg font-semibold tracking-tight">{lang.title}</h1>
-          </div>
+          <h1 className="text-lg font-semibold tracking-tight">{lang.title}</h1>
 
           {/* Language Selector */}
           <div className="flex gap-1 border border-border rounded-lg p-1">

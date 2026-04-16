@@ -1,5 +1,5 @@
 import { useLocation } from "wouter";
-import { ArrowLeft, Trash2, Plus, Minus } from "lucide-react";
+import { Trash2, Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
@@ -172,12 +172,6 @@ export default function Checkout({
       <div className="min-h-screen bg-background text-foreground">
         <div className="border-b border-border sticky top-0 z-40 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
-            <button
-              onClick={() => setLocation("/")}
-              className="p-2 hover:bg-secondary rounded-lg transition"
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </button>
             <h1 className="text-lg font-semibold tracking-tight">{lang.title}</h1>
           </div>
         </div>
@@ -203,13 +197,7 @@ export default function Checkout({
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <div className="border-b border-border sticky top-0 z-40 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
-          <button
-            onClick={() => setLocation("/")}
-            className="p-2 hover:bg-secondary rounded-lg transition"
-          >
-            <ArrowLeft className="w-5 h-5" />
-          </button>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <h1 className="text-lg font-semibold tracking-tight">{lang.title}</h1>
         </div>
       </div>
