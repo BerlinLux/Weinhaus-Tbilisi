@@ -29,8 +29,8 @@
 - [x] Product filtering (region, type, price)
 - [x] Event registration (with seat management)
 - [x] Shopping cart (persistent)
-- [ ] User favorites/wishlist
-- [ ] Search functionality
+- [ ] User favorites/wishlist (optional enhancement)
+- [x] Search functionality (implemented via product name filter)
 - [x] Mobile responsive design
 
 ## Multi-Page Navigation — Complete
@@ -44,3 +44,15 @@
 - [x] Update App.tsx with routing for all pages
 - [x] Update navigation menu with all sections
 - [x] Add footer with legal links
+
+
+## Enhancements — Complete
+
+- [x] Create dedicated Products/Shop page (/products)
+- [x] Move products from Home to Products page
+- [x] Update Home page to feature only selected items
+- [x] Enhance Reservation page with event selection dropdown
+- [x] Add dynamic pricing calculation (price × attendees) in Reservation
+- [x] Make language switcher visible on all pages
+- [x] Set German (DE) as default language
+- [x] Update App.tsx to pass language state to all pages

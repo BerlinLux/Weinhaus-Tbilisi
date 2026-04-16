@@ -142,11 +142,11 @@ const events: Event[] = [
 ];
 
 interface HomeProps {
-  language?: "DE" | "EN" | "KA";
+  language: Language;
+  onLanguageChange?: (lang: Language) => void;
 }
 
-export default function Home({ language: initialLanguage }: HomeProps) {
-  const [language, setLanguage] = useState<Language>("EN");
+export default function Home({ language, onLanguageChange }: HomeProps) {
   const [cartCount, setCartCount] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
@@ -221,11 +221,11 @@ export default function Home({ language: initialLanguage }: HomeProps) {
           {/* Right Actions */}
           <div className="flex items-center gap-3">
             {/* Language Selector */}
-            <div className="hidden sm:flex gap-1 border border-gray-200 rounded-lg p-1">
+            <div className="flex gap-1 border border-gray-200 rounded-lg p-1">
               {(["DE", "EN", "KA"] as Language[]).map((lang) => (
                 <button
                   key={lang}
-                  onClick={() => setLanguage(lang)}
+                  onClick={() => onLanguageChange?.(lang)}
                   className={`px-2 py-1 text-xs font-medium rounded transition ${
                     language === lang
                       ? "bg-gray-900 text-white"

@@ -15,15 +15,17 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Imprint from "./pages/Imprint";
 import Checkout from "./pages/Checkout";
+import Products from "./pages/Products";
 
 type Language = "DE" | "EN" | "KA";
 
 interface RouterProps {
   language: Language;
+  onLanguageChange: (lang: Language) => void;
 }
 
-function Router({ language }: RouterProps) {
-  const HomeWrapper = () => <Home language={language} />;
+function Router({ language, onLanguageChange }: RouterProps) {
+  const HomeWrapper = () => <Home language={language} onLanguageChange={onLanguageChange} />;
   const AboutWrapper = () => <About language={language} />;
   const EventsWrapper = () => <Events language={language} />;
   const BlogWrapper = () => <Blog language={language} />;
@@ -32,10 +34,12 @@ function Router({ language }: RouterProps) {
   const TermsWrapper = () => <Terms language={language} />;
   const ImprintWrapper = () => <Imprint language={language} />;
   const CheckoutWrapper = () => <Checkout language={language} cartItems={[]} />;
+  const ProductsWrapper = () => <Products language={language} />;
 
   return (
     <Switch>
       <Route path={"/"} component={HomeWrapper} />
+      <Route path={"/products"} component={ProductsWrapper} />
       <Route path={"/about"} component={AboutWrapper} />
       <Route path={"/events"} component={EventsWrapper} />
       <Route path={"/blog"} component={BlogWrapper} />
@@ -52,7 +56,7 @@ function Router({ language }: RouterProps) {
 }
 
 function App() {
-  const [language, setLanguage] = useState<Language>("EN");
+  const [language, setLanguage] = useState<Language>("DE");
   const [ageVerified, setAgeVerified] = useState(false);
 
   return (
@@ -66,7 +70,7 @@ function App() {
               onVerified={() => setAgeVerified(true)}
             />
           )}
-          {ageVerified && <Router language={language} />}
+          {ageVerified && <Router language={language} onLanguageChange={setLanguage} />}
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
