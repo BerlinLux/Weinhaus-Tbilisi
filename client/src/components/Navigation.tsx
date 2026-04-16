@@ -109,7 +109,7 @@ export default function Navigation({ language, onLanguageChange, cartCount = 0 }
             {items.blog}
           </button>
           <button
-            onClick={() => handleNavClick("/reservation")}
+            onClick={() => handleNavClick("/wine-club")}
             className="hover:text-accent transition"
           >
             {items.wineClub}
@@ -241,7 +241,7 @@ export default function Navigation({ language, onLanguageChange, cartCount = 0 }
             {items.blog}
           </button>
           <button
-            onClick={() => handleNavClick("/reservation")}
+            onClick={() => handleNavClick("/wine-club")}
             className="block w-full text-left text-sm hover:text-accent transition"
           >
             {items.wineClub}

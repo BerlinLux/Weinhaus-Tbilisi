@@ -21,6 +21,7 @@ import Shop from "./pages/Shop";
 import ProductDetail from "./pages/ProductDetail";
 import EventDetail from "./pages/EventDetail";
 import Profile from "./pages/Profile";
+import WineClub from "./pages/WineClub";
 
 type Language = "DE" | "EN" | "KA";
 
@@ -45,6 +46,7 @@ function Router({ language, onLanguageChange }: RouterProps) {
   const ProductDetailWrapper = ({ params }: any) => <ProductDetail language={language} productId={params.id} />;
   const EventDetailWrapper = ({ params }: any) => <EventDetail language={language} eventId={params.id} />;
   const ProfileWrapper = () => <Profile language={language} onLanguageChange={onLanguageChange} />;
+  const WineClubWrapper = () => <WineClub language={language} />;
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -63,6 +65,7 @@ function Router({ language, onLanguageChange }: RouterProps) {
           <Route path={"/events"} component={EventsWrapper} />
           <Route path={"/blog"} component={BlogWrapper} />
           <Route path={"/blog/:id"} component={BlogDetailWrapper} />
+          <Route path={"/wine-club"} component={WineClubWrapper} />
           <Route path={"/reservation"} component={ReservationWrapper} />
           <Route path={"/privacy"} component={PrivacyWrapper} />
           <Route path={"/terms"} component={TermsWrapper} />

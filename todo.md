@@ -156,8 +156,11 @@
 - [x] Add wine club membership option to navigation menu
 
 
+## Wine Club Implementation — Complete
+
+- [x] Create dedicated Wine Club page/section and wire navigation menu to it
+
 ## Next Steps
 
-- [ ] Create dedicated Wine Club page/section and wire navigation menu to it
 - [ ] Add Stripe payment integration for product purchases and wine club membership
 - [ ] Connect cart to persistent storage (localStorage) for better UX
