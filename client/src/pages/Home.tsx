@@ -141,7 +141,11 @@ const events: Event[] = [
   },
 ];
 
-export default function Home() {
+interface HomeProps {
+  language?: "DE" | "EN" | "KA";
+}
+
+export default function Home({ language: initialLanguage }: HomeProps) {
   const [language, setLanguage] = useState<Language>("EN");
   const [cartCount, setCartCount] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
@@ -197,14 +201,20 @@ export default function Home() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8 text-sm">
-            <a href="#" className="hover:text-amber-900 transition">
+            <a href="/" className="hover:text-amber-900 transition">
               {language === "DE" ? "Produkte" : language === "EN" ? "Products" : "პროდუქტები"}
             </a>
-            <a href="#" className="hover:text-amber-900 transition">
+            <a href="/about" className="hover:text-amber-900 transition">
+              {language === "DE" ? "Über uns" : language === "EN" ? "About" : "ჩვენ შესახებ"}
+            </a>
+            <a href="/events" className="hover:text-amber-900 transition">
               {language === "DE" ? "Events" : language === "EN" ? "Events" : "ღონისძიებები"}
             </a>
-            <a href="#" className="hover:text-amber-900 transition">
-              {language === "DE" ? "Kontakt" : language === "EN" ? "Contact" : "კონტაქტი"}
+            <a href="/blog" className="hover:text-amber-900 transition">
+              {language === "DE" ? "Blog" : language === "EN" ? "Blog" : "ბლოგი"}
+            </a>
+            <a href="/reservation" className="hover:text-amber-900 transition">
+              {language === "DE" ? "Reservierung" : language === "EN" ? "Reservation" : "რეზერვაცია"}
             </a>
           </nav>
 
@@ -250,14 +260,20 @@ export default function Home() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-gray-100 bg-gray-50 p-4 space-y-3">
-            <a href="#" className="block text-sm hover:text-amber-900">
+            <a href="/" className="block text-sm hover:text-amber-900">
               {language === "DE" ? "Produkte" : language === "EN" ? "Products" : "პროდუქტები"}
             </a>
-            <a href="#" className="block text-sm hover:text-amber-900">
+            <a href="/about" className="block text-sm hover:text-amber-900">
+              {language === "DE" ? "Über uns" : language === "EN" ? "About" : "ჩვენ შესახებ"}
+            </a>
+            <a href="/events" className="block text-sm hover:text-amber-900">
               {language === "DE" ? "Events" : language === "EN" ? "Events" : "ღონისძიებები"}
             </a>
-            <a href="#" className="block text-sm hover:text-amber-900">
-              {language === "DE" ? "Kontakt" : language === "EN" ? "Contact" : "კონტაქტი"}
+            <a href="/blog" className="block text-sm hover:text-amber-900">
+              {language === "DE" ? "Blog" : language === "EN" ? "Blog" : "ბლოგი"}
+            </a>
+            <a href="/reservation" className="block text-sm hover:text-amber-900">
+              {language === "DE" ? "Reservierung" : language === "EN" ? "Reservation" : "რეზერვაცია"}
             </a>
           </div>
         )}
@@ -535,8 +551,19 @@ export default function Home() {
               <p className="text-sm text-gray-600">Instagram • Facebook</p>
             </div>
           </div>
-          <div className="border-t border-gray-200 pt-4 text-center text-xs text-gray-500">
-            © 2026 Georgian Wine Berlin. All rights reserved.
+          <div className="border-t border-gray-200 pt-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+            <p>© 2026 Georgian Wine Berlin. All rights reserved.</p>
+            <div className="flex gap-6 mt-4 md:mt-0">
+              <a href="/privacy" className="hover:text-gray-700 transition">
+                {language === "DE" ? "Datenschutz" : language === "EN" ? "Privacy" : "კონფიდენციალურობა"}
+              </a>
+              <a href="/terms" className="hover:text-gray-700 transition">
+                {language === "DE" ? "Bedingungen" : language === "EN" ? "Terms" : "პირობები"}
+              </a>
+              <a href="/imprint" className="hover:text-gray-700 transition">
+                {language === "DE" ? "Impressum" : language === "EN" ? "Imprint" : "იმპრინტი"}
+              </a>
+            </div>
           </div>
         </div>
       </footer>
