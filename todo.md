@@ -146,3 +146,18 @@
 - [x] Improve Reservation page quantity controls with +/- buttons
 - [x] Fix Blog 'Mehr lesen' links to open article detail pages
 - [x] Add legal links to footer (Privacy, Terms, Imprint, BattG)
+
+
+## Homepage Enhancements — Complete
+
+- [x] Add promotions banner section (registration discount, bulk purchase deals, free shipping)
+- [x] Add latest events showcase section
+- [x] Add wine club membership call-to-action
+- [x] Add wine club membership option to navigation menu
+
+
+## Next Steps
+
+- [ ] Create dedicated Wine Club page/section and wire navigation menu to it
+- [ ] Add Stripe payment integration for product purchases and wine club membership
+- [ ] Connect cart to persistent storage (localStorage) for better UX

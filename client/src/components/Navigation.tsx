@@ -25,6 +25,7 @@ export default function Navigation({ language, onLanguageChange, cartCount = 0 }
       about: "Über uns",
       events: "Events",
       blog: "Blog",
+      wineClub: "Weinclub",
       reservation: "Reservierung",
       login: "Anmelden",
       profile: "Profil",
@@ -36,6 +37,7 @@ export default function Navigation({ language, onLanguageChange, cartCount = 0 }
       about: "About",
       events: "Events",
       blog: "Blog",
+      wineClub: "Wine Club",
       reservation: "Reservation",
       login: "Login",
       profile: "Profile",
@@ -47,6 +49,7 @@ export default function Navigation({ language, onLanguageChange, cartCount = 0 }
       about: "ჩვენ შესახებ",
       events: "ღონისძიებები",
       blog: "ბლოგი",
+      wineClub: "ღვინის კლუბი",
       reservation: "რეზერვაცია",
       login: "შესვლა",
       profile: "პროფილი",
@@ -104,6 +107,12 @@ export default function Navigation({ language, onLanguageChange, cartCount = 0 }
             className="hover:text-accent transition"
           >
             {items.blog}
+          </button>
+          <button
+            onClick={() => handleNavClick("/reservation")}
+            className="hover:text-accent transition"
+          >
+            {items.wineClub}
           </button>
           <button
             onClick={() => handleNavClick("/reservation")}
@@ -230,6 +239,12 @@ export default function Navigation({ language, onLanguageChange, cartCount = 0 }
             className="block w-full text-left text-sm hover:text-accent transition"
           >
             {items.blog}
+          </button>
+          <button
+            onClick={() => handleNavClick("/reservation")}
+            className="block w-full text-left text-sm hover:text-accent transition"
+          >
+            {items.wineClub}
           </button>
           <button
             onClick={() => handleNavClick("/reservation")}
