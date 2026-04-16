@@ -116,7 +116,7 @@ export default function Navigation({ language, onLanguageChange, cartCount = 0 }
         {/* Right Actions */}
         <div className="flex items-center gap-3">
           {/* Language Selector */}
-          <div className="flex gap-1 border border-border rounded-lg p-1 bg-secondary">
+          <div className="flex gap-1 border border-border rounded-lg p-1 bg-secondary" style={{borderRadius: '1px', display: 'block'}}>
             {(["DE", "EN", "KA"] as Language[]).map((lang) => (
               <button
                 key={lang}
