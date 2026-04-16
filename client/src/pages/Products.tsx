@@ -295,7 +295,7 @@ export default function Products({ language }: ProductsProps) {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProducts.map((product) => (
-              <button key={product.id} onClick={() => setLocation(`/product/${product.id}`)} className="bg-background border border-border rounded-lg overflow-hidden hover:shadow-md transition text-left w-full">
+              <div key={product.id} onClick={() => setLocation(`/product/${product.id}`)} className="bg-background border border-border rounded-lg overflow-hidden hover:shadow-md transition cursor-pointer w-full">
                 <img
                   src={product.image}
                   alt={product.name[language]}
@@ -312,7 +312,8 @@ export default function Products({ language }: ProductsProps) {
                   <div className="flex items-center justify-between">
                     <span className="font-semibold">€{product.price}</span>
                     <Button
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.stopPropagation();
                         toast.success(`${product.name[language]} ${language === "DE" ? "hinzugefügt" : language === "EN" ? "added" : "დამატებულია"}`);
                       }}
                       size="sm"
@@ -322,7 +323,7 @@ export default function Products({ language }: ProductsProps) {
                     </Button>
                   </div>
                 </div>
-              </button>
+              </div>
             ))}
           </div>
         )}
