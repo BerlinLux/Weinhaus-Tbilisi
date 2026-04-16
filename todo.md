@@ -63,3 +63,13 @@
 - [x] Create Shop/Bar page with location info, contact, hours, map
 - [x] Add route /shop or /bar in App.tsx
 - [x] Add navigation link in menu
+
+
+## Design Enhancement — Vault & Gold Color Scheme
+
+- [x] Update color palette in index.css (Vault #111111, Gold #C8A96E)
+- [x] Redesign header with Vault background
+- [x] Update buttons and CTAs with Gold accents
+- [x] Refactor product cards with new color scheme
+- [x] Update navigation styling
+- [x] Test all pages with new colors

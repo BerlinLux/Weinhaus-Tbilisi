@@ -1,7 +1,7 @@
 /*
-Minimalist Modern Design — Georgian Wine Berlin
-Clean, contemporary, professional interface with flexible functionality.
-Focus: simplicity, elegance, user-centric experience.
+Vault & Gold Design — Georgian Wine Berlin
+Dark luxury palette with Vault (deep black) and Gold accents.
+Focus: elegance, sophistication, premium aesthetic.
 */
 
 import { useState, useMemo } from "react";
@@ -190,32 +190,33 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-gray-100 bg-white">
+      <header className="sticky top-0 z-50 border-b border-border bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-amber-900 rounded-sm"></div>
-            <h1 className="text-lg font-semibold tracking-tight">GEORGIAN WINE</h1>
+            <div className="w-8 h-8 bg-accent rounded-sm"></div>
+            <h1 className="text-lg font-semibold tracking-tight text-foreground">GEORGIAN WINE</h1>
           </div>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8 text-sm">
-            <a href="/products" className="hover:text-amber-900 transition">
+            <a href="/products" className="hover:text-accent transition">
               {language === "DE" ? "Produkte" : language === "EN" ? "Products" : "პროდუქტები"}
             </a>
-            <a href="/shop" className="hover:text-amber-900 transition">
+            <a href="/shop" className="hover:text-accent transition">
               {language === "DE" ? "Mägazin & Bar" : language === "EN" ? "Shop & Bar" : "მაღაზია & ბარი"}
             </a>
-            <a href="/about" className="hover:text-amber-900 transition">             {language === "DE" ? "Über uns" : language === "EN" ? "About" : "ჩვენ შესახებ"}
+            <a href="/about" className="hover:text-accent transition">
+              {language === "DE" ? "Über uns" : language === "EN" ? "About" : "ჩვენ შესათაბ"}
             </a>
-            <a href="/events" className="hover:text-amber-900 transition">
+            <a href="/events" className="hover:text-accent transition">
               {language === "DE" ? "Events" : language === "EN" ? "Events" : "ღონისძიებები"}
             </a>
-            <a href="/blog" className="hover:text-amber-900 transition">
+            <a href="/blog" className="hover:text-accent transition">
               {language === "DE" ? "Blog" : language === "EN" ? "Blog" : "ბლოგი"}
             </a>
-            <a href="/reservation" className="hover:text-amber-900 transition">
+            <a href="/reservation" className="hover:text-accent transition">
               {language === "DE" ? "Reservierung" : language === "EN" ? "Reservation" : "რეზერვაცია"}
             </a>
           </nav>
@@ -223,15 +224,15 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
           {/* Right Actions */}
           <div className="flex items-center gap-3">
             {/* Language Selector */}
-            <div className="flex gap-1 border border-gray-200 rounded-lg p-1">
+            <div className="flex gap-1 border border-border rounded-lg p-1 bg-secondary">
               {(["DE", "EN", "KA"] as Language[]).map((lang) => (
                 <button
                   key={lang}
                   onClick={() => onLanguageChange?.(lang)}
                   className={`px-2 py-1 text-xs font-medium rounded transition ${
                     language === lang
-                      ? "bg-gray-900 text-white"
-                      : "text-gray-600 hover:text-gray-900"
+                      ? "bg-accent text-accent-foreground"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {lang}
@@ -240,10 +241,10 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
             </div>
 
             {/* Cart */}
-            <button className="relative p-2 hover:bg-gray-100 rounded-lg transition">
+            <button className="relative p-2 hover:bg-secondary rounded-lg transition">
               <ShoppingCart className="w-5 h-5" />
               {cartCount > 0 && (
-                <span className="absolute top-0 right-0 w-4 h-4 bg-amber-900 text-white text-xs rounded-full flex items-center justify-center">
+                <span className="absolute top-0 right-0 w-4 h-4 bg-accent text-accent-foreground text-xs rounded-full flex items-center justify-center">
                   {cartCount}
                 </span>
               )}
@@ -252,7 +253,7 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
             {/* Mobile Menu */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition"
+              className="md:hidden p-2 hover:bg-secondary rounded-lg transition"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -261,23 +262,23 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-gray-100 bg-gray-50 p-4 space-y-3">
-            <a href="/products" className="block text-sm hover:text-amber-900">
+          <div className="md:hidden border-t border-border bg-secondary p-4 space-y-3">
+            <a href="/products" className="block text-sm hover:text-accent">
               {language === "DE" ? "Produkte" : language === "EN" ? "Products" : "პროდუქტები"}
             </a>
-            <a href="/shop" className="block text-sm hover:text-amber-900">
+            <a href="/shop" className="block text-sm hover:text-accent">
               {language === "DE" ? "Mägazin & Bar" : language === "EN" ? "Shop & Bar" : "მაღაზია & ბარი"}
             </a>
-            <a href="/about" className="block text-sm hover:text-amber-900">
-              {language === "DE" ? "Über uns" : language === "EN" ? "About" : "ჩვენ შესახებ"}
+            <a href="/about" className="block text-sm hover:text-accent">
+              {language === "DE" ? "Über uns" : language === "EN" ? "About" : "ჩვენ შესათაბ"}
             </a>
-            <a href="/events" className="block text-sm hover:text-amber-900">
+            <a href="/events" className="block text-sm hover:text-accent">
               {language === "DE" ? "Events" : language === "EN" ? "Events" : "ღონისძიებები"}
             </a>
-            <a href="/blog" className="block text-sm hover:text-amber-900">
+            <a href="/blog" className="block text-sm hover:text-accent">
               {language === "DE" ? "Blog" : language === "EN" ? "Blog" : "ბლოგი"}
             </a>
-            <a href="/reservation" className="block text-sm hover:text-amber-900">
+            <a href="/reservation" className="block text-sm hover:text-accent">
               {language === "DE" ? "Reservierung" : language === "EN" ? "Reservation" : "რეზერვაცია"}
             </a>
           </div>
