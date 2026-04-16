@@ -6,6 +6,7 @@ import { createRoot } from "react-dom/client";
 import superjson from "superjson";
 import App from "./App";
 import { CartProvider } from "./contexts/CartContext";
+import { NotificationProvider } from "./contexts/NotificationContext";
 import { getLoginUrl } from "./const";
 import "./index.css";
 
@@ -56,9 +57,11 @@ const trpcClient = trpc.createClient({
 createRoot(document.getElementById("root")!).render(
   <trpc.Provider client={trpcClient} queryClient={queryClient}>
     <QueryClientProvider client={queryClient}>
-      <CartProvider>
-        <App />
-      </CartProvider>
+      <NotificationProvider>
+        <CartProvider>
+          <App />
+        </CartProvider>
+      </NotificationProvider>
     </QueryClientProvider>
   </trpc.Provider>
 );

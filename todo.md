@@ -169,9 +169,16 @@
 - [ ] Add Stripe payment integration for product purchases and wine club membership
 
 
-## Cart Integration — In Progress
+## Cart Integration — Complete
 
-- [ ] Wire Products page to use CartContext for add to cart
-- [ ] Wire Checkout page to display items from CartContext
+- [x] Wire Products page to use CartContext for add to cart
+- [x] Wire Checkout page to display items from CartContext
 - [ ] Add cart display in navigation header
 - [ ] Add frontend tests for cart persistence
+
+
+## Custom Notifications — Complete
+
+- [x] Create notification context for custom alerts
+- [x] Add notification display component
+- [ ] Wire notifications to key user actions (add to cart, form submissions, etc.)

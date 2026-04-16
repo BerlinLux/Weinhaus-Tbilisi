@@ -4,26 +4,18 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useCart } from "@/contexts/CartContext";
 
 type Language = "DE" | "EN" | "KA";
 
 interface CheckoutProps {
   language: Language;
-  cartItems?: Array<{
-    id: string;
-    name: string;
-    price: number;
-    quantity: number;
-  }>;
-  onCheckout?: (data: any) => void;
 }
 
-export default function Checkout({
-  language,
-  cartItems = [],
-  onCheckout,
-}: CheckoutProps) {
+export default function Checkout({ language }: CheckoutProps) {
   const [, setLocation] = useLocation();
+  const { items: cartItems, updateQuantity, removeItem } = useCart();
+  
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -35,15 +27,11 @@ export default function Checkout({
     country: "Germany",
   });
 
-  const [quantities, setQuantities] = useState<Record<string, number>>(
-    cartItems.reduce(
-      (acc, item) => ({
-        ...acc,
-        [item.id]: item.quantity,
-      }),
-      {}
-    )
-  );
+  const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  const subtotal = total;
+  const shipping_cost = subtotal > 50 ? 0 : 5.99;
+  const total_with_shipping = subtotal + shipping_cost;
 
   const labels = {
     DE: {
@@ -117,19 +105,25 @@ export default function Checkout({
   };
 
   const handleQuantityChange = (itemId: string, delta: number) => {
-    setQuantities((prev) => ({
-      ...prev,
-      [itemId]: Math.max(1, (prev[itemId] || 1) + delta),
-    }));
+    const item = cartItems.find((i) => i.id === itemId);
+    if (item) {
+      updateQuantity(itemId, Math.max(1, item.quantity + delta));
+    }
   };
 
-  const subtotal = cartItems.reduce(
-    (sum, item) => sum + item.price * (quantities[item.id] || item.quantity),
-    0
-  );
+  const handleRemoveItem = (itemId: string) => {
+    removeItem(itemId);
+    toast.success(
+      language === "DE"
+        ? "Artikel entfernt"
+        : language === "EN"
+        ? "Item removed"
+        : "ელემენტი წაშლილია"
+    );
+  };
 
-  const shipping = subtotal > 50 ? 0 : 5.99;
-  const total = subtotal + shipping;
+  const shipping = total > 50 ? 0 : 5.99;
+  const totalWithShipping = total + shipping;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -153,16 +147,7 @@ export default function Checkout({
         : "შეკვეთა მიღებულია! გმადლობთ."
     );
 
-    if (onCheckout) {
-      onCheckout({
-        ...formData,
-        items: cartItems.map((item) => ({
-          ...item,
-          quantity: quantities[item.id] || item.quantity,
-        })),
-        total,
-      });
-    }
+    // TODO: Integrate with Stripe payment
 
     setTimeout(() => setLocation("/"), 2000);
   };
@@ -348,7 +333,7 @@ export default function Checkout({
                           <Minus className="w-3 h-3" />
                         </button>
                         <span className="w-6 text-center">
-                          {quantities[item.id] || item.quantity}
+                          {item.quantity}
                         </span>
                         <button
                           onClick={() => handleQuantityChange(item.id, 1)}
@@ -359,7 +344,7 @@ export default function Checkout({
                       </div>
                     </div>
                     <p className="font-medium">
-                      €{(item.price * (quantities[item.id] || item.quantity)).toFixed(2)}
+                      €{(item.price * item.quantity).toFixed(2)}
                     </p>
                   </div>
                 ))}

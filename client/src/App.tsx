@@ -3,6 +3,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { NotificationContainer } from "./components/NotificationContainer";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import AgeVerification from "./components/AgeVerification";
 import Navigation from "./components/Navigation";
@@ -40,7 +41,7 @@ function Router({ language, onLanguageChange }: RouterProps) {
   const PrivacyWrapper = () => <Privacy language={language} />;
   const TermsWrapper = () => <Terms language={language} />;
   const ImprintWrapper = () => <Imprint language={language} />;
-  const CheckoutWrapper = () => <Checkout language={language} cartItems={[]} />;
+  const CheckoutWrapper = () => <Checkout language={language} />;
   const ProductsWrapper = () => <Products language={language} />;
   const ShopWrapper = () => <Shop language={language} onLanguageChange={onLanguageChange} />;
   const ProductDetailWrapper = ({ params }: any) => <ProductDetail language={language} productId={params.id} />;
@@ -146,6 +147,7 @@ function App() {
       <ThemeProvider defaultTheme="dark">
         <TooltipProvider>
           <Toaster />
+          <NotificationContainer />
           {!isVerified ? (
             <AgeVerification language={language} onVerified={() => setIsVerified(true)} />
           ) : (

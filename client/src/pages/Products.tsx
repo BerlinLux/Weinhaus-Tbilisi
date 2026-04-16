@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
+import { useCart } from "@/contexts/CartContext";
 
 type Language = "DE" | "EN" | "KA";
 type ProductCategory = "bottle" | "barrel" | "qvevri" | "voucher";
@@ -113,17 +114,15 @@ export default function Products({ language }: ProductsProps) {
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<ProductCategory | null>(null);
   const [showFilters, setShowFilters] = useState(false);
-  const [cart, setCart] = useState<Array<{ id: string; name: string; quantity: number }>>([]);
+  const { addItem } = useCart();
 
   const addToCart = (product: Product) => {
-    setCart((prevCart) => {
-      const existingItem = prevCart.find((item) => item.id === product.id);
-      if (existingItem) {
-        return prevCart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      }
-      return [...prevCart, { id: product.id, name: product.name[language], quantity: 1 }];
+    addItem({
+      id: product.id,
+      name: product.name[language],
+      price: product.price,
+      quantity: 1,
+      category: product.category,
     });
   };
 
