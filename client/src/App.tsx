@@ -52,6 +52,7 @@ function Router({ language, onLanguageChange }: RouterProps) {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <NavigationWrapper />
       {/* Page Content */}
       <main className="flex-1">
         <Switch>
