@@ -87,3 +87,14 @@
 - [x] Update all legal pages (Privacy, Terms, Imprint) with Vault & Gold colors
 - [x] Verify all pages use semantic color tokens
 - [x] Test all pages in browser
+
+
+## Navigation & Layout Restructuring — Complete
+
+- [x] Create persistent navigation header component shared across all pages
+- [x] Remove back buttons from individual pages (About, Events, Blog, Shop, etc.)
+- [x] Move navigation bar from Home.tsx to App.tsx or create shared Layout component
+- [x] Remove product showcase from Home page
+- [x] Keep only hero/welcome section on Home page
+- [x] Ensure navigation bar is identical on all pages
+- [x] Test navigation consistency across all routes

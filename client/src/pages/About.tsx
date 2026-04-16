@@ -1,5 +1,4 @@
 import { useLocation } from "wouter";
-import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type Language = "DE" | "EN" | "KA";
@@ -84,19 +83,6 @@ export default function About({ language }: AboutProps) {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Header */}
-      <div className="border-b border-border sticky top-0 z-40 bg-background">
-        <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-          <button
-            onClick={() => setLocation("/")}
-            className="p-2 hover:bg-secondary rounded-lg transition"
-          >
-            <ArrowLeft className="w-5 h-5" />
-          </button>
-          <h1 className="text-lg font-semibold tracking-tight">{lang.title}</h1>
-        </div>
-      </div>
-
       {/* Content */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-12">
@@ -113,19 +99,7 @@ export default function About({ language }: AboutProps) {
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="mt-16 pt-8 border-t border-border">
-          <Button
-            onClick={() => setLocation("/")}
-            className="w-full md:w-auto bg-accent text-accent-foreground hover:bg-accent/90"
-          >
-            {language === "DE"
-              ? "Zu den Produkten"
-              : language === "EN"
-              ? "Back to Products"
-              : "პროდუქტებზე"}
-          </Button>
-        </div>
+
       </div>
     </div>
   );

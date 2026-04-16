@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -6,6 +5,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import AgeVerification from "./components/AgeVerification";
+import Navigation from "./components/Navigation";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Events from "./pages/Events";
@@ -39,45 +39,57 @@ function Router({ language, onLanguageChange }: RouterProps) {
   const ShopWrapper = () => <Shop language={language} onLanguageChange={onLanguageChange} />;
 
   return (
-    <Switch>
-      <Route path={"/"} component={HomeWrapper} />
-      <Route path={"/products"} component={ProductsWrapper} />
-      <Route path={"/shop"} component={ShopWrapper} />
-      <Route path={"/about"} component={AboutWrapper} />
-      <Route path={"/events"} component={EventsWrapper} />
-      <Route path={"/blog"} component={BlogWrapper} />
-      <Route path={"/reservation"} component={ReservationWrapper} />
-      <Route path={"/privacy"} component={PrivacyWrapper} />
-      <Route path={"/terms"} component={TermsWrapper} />
-      <Route path={"/imprint"} component={ImprintWrapper} />
-      <Route path={"/checkout"} component={CheckoutWrapper} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+    <div className="flex flex-col min-h-screen">
+      {/* Shared Navigation */}
+      <Navigation language={language} onLanguageChange={onLanguageChange} cartCount={0} />
+
+      {/* Page Content */}
+      <main className="flex-1">
+        <Switch>
+          <Route path={"/"} component={HomeWrapper} />
+          <Route path={"/products"} component={ProductsWrapper} />
+          <Route path={"/shop"} component={ShopWrapper} />
+          <Route path={"/about"} component={AboutWrapper} />
+          <Route path={"/events"} component={EventsWrapper} />
+          <Route path={"/blog"} component={BlogWrapper} />
+          <Route path={"/reservation"} component={ReservationWrapper} />
+          <Route path={"/privacy"} component={PrivacyWrapper} />
+          <Route path={"/terms"} component={TermsWrapper} />
+          <Route path={"/imprint"} component={ImprintWrapper} />
+          <Route path={"/checkout"} component={CheckoutWrapper} />
+          <Route path={"/404"} component={NotFound} />
+          {/* Final fallback route */}
+          <Route component={NotFound} />
+        </Switch>
+      </main>
+    </div>
   );
 }
 
+// NOTE: About Theme
+// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
+//   to keep consistent foreground/background color across components
+// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
+
 function App() {
-  const [language, setLanguage] = useState<Language>("DE");
-  const [ageVerified, setAgeVerified] = useState(false);
+  const [language, setLanguage] = React.useState<Language>("DE");
+  const [isVerified, setIsVerified] = React.useState(false);
 
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="light">
+      <ThemeProvider defaultTheme="dark">
         <TooltipProvider>
-          <Toaster position="top-right" />
-          {!ageVerified && (
-            <AgeVerification
-              language={language}
-              onVerified={() => setAgeVerified(true)}
-            />
+          <Toaster />
+          {!isVerified ? (
+            <AgeVerification language={language} onVerified={() => setIsVerified(true)} />
+          ) : (
+            <Router language={language} onLanguageChange={setLanguage} />
           )}
-          {ageVerified && <Router language={language} onLanguageChange={setLanguage} />}
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );
 }
 
+import React from "react";
 export default App;
