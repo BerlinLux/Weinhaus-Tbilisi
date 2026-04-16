@@ -16,6 +16,7 @@ import Terms from "./pages/Terms";
 import Imprint from "./pages/Imprint";
 import Checkout from "./pages/Checkout";
 import Products from "./pages/Products";
+import Shop from "./pages/Shop";
 
 type Language = "DE" | "EN" | "KA";
 
@@ -35,11 +36,13 @@ function Router({ language, onLanguageChange }: RouterProps) {
   const ImprintWrapper = () => <Imprint language={language} />;
   const CheckoutWrapper = () => <Checkout language={language} cartItems={[]} />;
   const ProductsWrapper = () => <Products language={language} />;
+  const ShopWrapper = () => <Shop language={language} onLanguageChange={onLanguageChange} />;
 
   return (
     <Switch>
       <Route path={"/"} component={HomeWrapper} />
       <Route path={"/products"} component={ProductsWrapper} />
+      <Route path={"/shop"} component={ShopWrapper} />
       <Route path={"/about"} component={AboutWrapper} />
       <Route path={"/events"} component={EventsWrapper} />
       <Route path={"/blog"} component={BlogWrapper} />

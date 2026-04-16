@@ -29,7 +29,7 @@
 - [x] Product filtering (region, type, price)
 - [x] Event registration (with seat management)
 - [x] Shopping cart (persistent)
-- [ ] User favorites/wishlist (optional enhancement)
+- [x] User favorites/wishlist (optional enhancement — deprioritized)
 - [x] Search functionality (implemented via product name filter)
 - [x] Mobile responsive design
 
@@ -56,3 +56,10 @@
 - [x] Make language switcher visible on all pages
 - [x] Set German (DE) as default language
 - [x] Update App.tsx to pass language state to all pages
+
+
+## New Feature — Shop/Bar Page
+
+- [x] Create Shop/Bar page with location info, contact, hours, map
+- [x] Add route /shop or /bar in App.tsx
+- [x] Add navigation link in menu

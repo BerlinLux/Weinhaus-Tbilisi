@@ -201,11 +201,13 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8 text-sm">
-            <a href="/" className="hover:text-amber-900 transition">
+            <a href="/products" className="hover:text-amber-900 transition">
               {language === "DE" ? "Produkte" : language === "EN" ? "Products" : "პროდუქტები"}
             </a>
-            <a href="/about" className="hover:text-amber-900 transition">
-              {language === "DE" ? "Über uns" : language === "EN" ? "About" : "ჩვენ შესახებ"}
+            <a href="/shop" className="hover:text-amber-900 transition">
+              {language === "DE" ? "Mägazin & Bar" : language === "EN" ? "Shop & Bar" : "მაღაზია & ბარი"}
+            </a>
+            <a href="/about" className="hover:text-amber-900 transition">             {language === "DE" ? "Über uns" : language === "EN" ? "About" : "ჩვენ შესახებ"}
             </a>
             <a href="/events" className="hover:text-amber-900 transition">
               {language === "DE" ? "Events" : language === "EN" ? "Events" : "ღონისძიებები"}
