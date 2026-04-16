@@ -113,51 +113,6 @@ export default function Home({ language }: HomeProps) {
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
-      {/* Hero Section */}
-      <section className="flex-1 flex items-center justify-center px-4 py-20 sm:py-32">
-        <div className="max-w-2xl text-center">
-          {/* Accent Line */}
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-8 bg-accent"></div>
-            <span className="text-sm font-medium text-accent uppercase tracking-widest">Georgian Heritage</span>
-            <div className="h-px w-8 bg-accent"></div>
-          </div>
-
-          {/* Title */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-            {lang.title}
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-lg sm:text-xl text-muted-foreground mb-8">
-            {lang.subtitle}
-          </p>
-
-          {/* Description */}
-          <p className="text-base sm:text-lg text-muted-foreground mb-12 leading-relaxed">
-            {lang.description}
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              onClick={() => setLocation("/products")}
-              className="bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-3 text-base font-medium flex items-center justify-center gap-2"
-            >
-              {lang.cta}
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-            <Button
-              onClick={() => setLocation("/about")}
-              variant="outline"
-              className="border-border hover:bg-secondary px-8 py-3 text-base font-medium"
-            >
-              {lang.about}
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Promotions Section */}
       <section className="bg-secondary/50 py-16 px-4">
         <div className="max-w-6xl mx-auto">
