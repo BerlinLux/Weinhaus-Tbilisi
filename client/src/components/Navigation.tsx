@@ -70,7 +70,7 @@ export default function Navigation({ language, onLanguageChange, cartCount = 0 }
           className="flex items-center gap-2 hover:opacity-80 transition"
         >
           <div className="w-8 h-8 bg-accent rounded-sm"></div>
-          <h1 className="text-lg font-semibold tracking-tight text-foreground">GEORGIAN WINE</h1>
+          <h1 className="text-lg font-semibold tracking-tight text-foreground">Weinhaus Tbilisi</h1>
         </button>
 
         {/* Desktop Nav */}
