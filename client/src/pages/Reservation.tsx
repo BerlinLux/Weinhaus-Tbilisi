@@ -274,14 +274,23 @@ export default function Reservation({ language }: ReservationProps) {
                 <label className="block text-sm font-medium mb-2">
                   {lang.attendees}
                 </label>
-                <input
-                  type="number"
-                  min="1"
-                  max={selectedEvent.seats}
-                  value={attendees}
-                  onChange={(e) => setAttendees(Math.max(1, parseInt(e.target.value) || 1))}
-                  className="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900"
-                />
+                <div className="flex items-center gap-3 border border-border rounded-lg p-2 w-full">
+                  <button
+                    type="button"
+                    onClick={() => setAttendees(Math.max(1, attendees - 1))}
+                    className="px-3 py-1 hover:bg-secondary rounded transition font-semibold"
+                  >
+                    −
+                  </button>
+                  <span className="flex-1 text-center font-semibold">{attendees}</span>
+                  <button
+                    type="button"
+                    onClick={() => setAttendees(Math.min(selectedEvent.seats, attendees + 1))}
+                    className="px-3 py-1 hover:bg-secondary rounded transition font-semibold"
+                  >
+                    +
+                  </button>
+                </div>
               </div>
 
               {/* Price Calculation */}

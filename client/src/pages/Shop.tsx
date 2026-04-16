@@ -106,25 +106,8 @@ export default function Shop({ language, onLanguageChange }: ShopProps) {
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <div className="border-b border-border sticky top-0 z-40 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <h1 className="text-lg font-semibold tracking-tight">{lang.title}</h1>
-
-          {/* Language Selector */}
-          <div className="flex gap-1 border border-border rounded-lg p-1">
-            {(["DE", "EN", "KA"] as Language[]).map((lang_code) => (
-              <button
-                key={lang_code}
-                onClick={() => onLanguageChange?.(lang_code)}
-                className={`px-2 py-1 text-xs font-medium rounded transition ${
-                  language === lang_code
-                    ? "bg-accent text-accent-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {lang_code}
-              </button>
-            ))}
-          </div>
         </div>
       </div>
 

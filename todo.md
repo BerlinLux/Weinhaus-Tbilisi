@@ -137,3 +137,12 @@
 - [x] Wire authentication to cart persistence
 - [x] Wire authentication to reservation history
 - [x] Test complete authentication flow
+
+
+## Bug Fixes — In Progress
+
+- [x] Fix cart functionality - products not being added to cart
+- [x] Hide language selector from Shop page header
+- [x] Improve Reservation page quantity controls with +/- buttons
+- [x] Fix Blog 'Mehr lesen' links to open article detail pages
+- [x] Add legal links to footer (Privacy, Terms, Imprint, BattG)

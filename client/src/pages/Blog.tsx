@@ -127,7 +127,10 @@ export default function Blog({ language }: BlogProps) {
               <p className="text-muted-foreground mb-4">{article.excerpt[language]}</p>
               <p className="text-muted-foreground leading-relaxed mb-4">{article.content[language]}</p>
 
-              <button className="text-amber-900 font-medium hover:text-amber-800 transition">
+              <button
+                onClick={() => setLocation(`/blog/${article.id}`)}
+                className="text-accent font-medium hover:text-accent/80 transition"
+              >
                 {lang.readMore} →
               </button>
             </article>

@@ -113,6 +113,19 @@ export default function Products({ language }: ProductsProps) {
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<ProductCategory | null>(null);
   const [showFilters, setShowFilters] = useState(false);
+  const [cart, setCart] = useState<Array<{ id: string; name: string; quantity: number }>>([]);
+
+  const addToCart = (product: Product) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((item) => item.id === product.id);
+      if (existingItem) {
+        return prevCart.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+      }
+      return [...prevCart, { id: product.id, name: product.name[language], quantity: 1 }];
+    });
+  };
 
   const regions = useMemo(
     () => Array.from(new Set(products.map((p) => p.region))),
@@ -306,6 +319,7 @@ export default function Products({ language }: ProductsProps) {
                     <Button
                       onClick={(e) => {
                         e.stopPropagation();
+                        addToCart(product);
                         toast.success(`${product.name[language]} ${language === "DE" ? "hinzugefügt" : language === "EN" ? "added" : "დამატებულია"}`);
                       }}
                       size="sm"
