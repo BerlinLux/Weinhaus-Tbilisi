@@ -1,10 +1,28 @@
 import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
-import { publicProcedure, router } from "./_core/trpc";
+import { publicProcedure, router, protectedProcedure } from "./_core/trpc";
+import { z } from "zod";
+import {
+  getProducts,
+  getFeaturedProducts,
+  getProductsByCategory,
+  getProductsByRegion,
+  getProductById,
+  getProductsByPriceRange,
+  getEvents,
+  getUpcomingEvents,
+  getEventById,
+  getEventsByCategory,
+  getBlogArticles,
+  getBlogArticleById,
+  getBlogArticlesByCategory,
+  getLatestBlogArticles,
+  createOrder,
+  getUserOrders,
+} from "./db";
 
 export const appRouter = router({
-    // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
   system: systemRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
@@ -17,12 +35,79 @@ export const appRouter = router({
     }),
   }),
 
-  // TODO: add feature routers here, e.g.
-  // todo: router({
-  //   list: protectedProcedure.query(({ ctx }) =>
-  //     db.getUserTodos(ctx.user.id)
-  //   ),
-  // }),
+  products: router({
+    list: publicProcedure.query(() => getProducts()),
+    featured: publicProcedure.query(() => getFeaturedProducts()),
+    byCategory: publicProcedure
+      .input(z.object({ category: z.string() }))
+      .query(({ input }) => getProductsByCategory(input.category)),
+    byRegion: publicProcedure
+      .input(z.object({ region: z.string() }))
+      .query(({ input }) => getProductsByRegion(input.region)),
+    byId: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .query(({ input }) => getProductById(input.id)),
+    byPriceRange: publicProcedure
+      .input(z.object({ minPrice: z.number(), maxPrice: z.number() }))
+      .query(({ input }) => getProductsByPriceRange(input.minPrice, input.maxPrice)),
+  }),
+
+  events: router({
+    list: publicProcedure.query(() => getEvents()),
+    upcoming: publicProcedure.query(() => getUpcomingEvents()),
+    byId: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .query(({ input }) => getEventById(input.id)),
+    byCategory: publicProcedure
+      .input(z.object({ category: z.string() }))
+      .query(({ input }) => getEventsByCategory(input.category)),
+  }),
+
+  blog: router({
+    list: publicProcedure.query(() => getBlogArticles()),
+    latest: publicProcedure
+      .input(z.object({ limit: z.number().optional() }))
+      .query(({ input }) => getLatestBlogArticles(input.limit)),
+    byId: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .query(({ input }) => getBlogArticleById(input.id)),
+    byCategory: publicProcedure
+      .input(z.object({ category: z.string() }))
+      .query(({ input }) => getBlogArticlesByCategory(input.category)),
+  }),
+
+  orders: router({
+    create: publicProcedure
+      .input(
+        z.object({
+          email: z.string().email(),
+          firstName: z.string(),
+          lastName: z.string().optional(),
+          phone: z.string().optional(),
+          address: z.string(),
+          city: z.string().optional(),
+          postalCode: z.string().optional(),
+          country: z.string().optional(),
+          total: z.number(),
+          items: z.string(),
+        })
+      )
+      .mutation(({ input }) =>
+        createOrder({
+          email: input.email,
+          firstName: input.firstName,
+          lastName: input.lastName,
+          phone: input.phone,
+          address: input.address,
+          city: input.city,
+          postalCode: input.postalCode,
+          country: input.country || "Germany",
+          total: input.total,
+          items: input.items,
+        })
+      ),
+    userOrders: protectedProcedure.query(({ ctx }) => getUserOrders(ctx.user.id)),
+  }),
 });
 
 export type AppRouter = typeof appRouter;

@@ -14,6 +14,7 @@ import Reservation from "./pages/Reservation";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Imprint from "./pages/Imprint";
+import Checkout from "./pages/Checkout";
 
 type Language = "DE" | "EN" | "KA";
 
@@ -30,6 +31,7 @@ function Router({ language }: RouterProps) {
   const PrivacyWrapper = () => <Privacy language={language} />;
   const TermsWrapper = () => <Terms language={language} />;
   const ImprintWrapper = () => <Imprint language={language} />;
+  const CheckoutWrapper = () => <Checkout language={language} cartItems={[]} />;
 
   return (
     <Switch>
@@ -41,6 +43,7 @@ function Router({ language }: RouterProps) {
       <Route path={"/privacy"} component={PrivacyWrapper} />
       <Route path={"/terms"} component={TermsWrapper} />
       <Route path={"/imprint"} component={ImprintWrapper} />
+      <Route path={"/checkout"} component={CheckoutWrapper} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
