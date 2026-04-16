@@ -160,7 +160,18 @@
 
 - [x] Create dedicated Wine Club page/section and wire navigation menu to it
 
+## Cart Persistence — Complete
+
+- [x] Connect cart to persistent storage (localStorage) for better UX
+
 ## Next Steps
 
 - [ ] Add Stripe payment integration for product purchases and wine club membership
-- [ ] Connect cart to persistent storage (localStorage) for better UX
+
+
+## Cart Integration — In Progress
+
+- [ ] Wire Products page to use CartContext for add to cart
+- [ ] Wire Checkout page to display items from CartContext
+- [ ] Add cart display in navigation header
+- [ ] Add frontend tests for cart persistence
