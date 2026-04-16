@@ -1,7 +1,7 @@
 /*
-Design philosophy for this file: Qvevri Modernism.
-The global system should feel tactile, cellar-inspired, and editorial, using warm mineral tones, deep wine-dark surfaces, generous spacing, and precise typography.
-Every surface should reinforce restrained luxury rather than generic SaaS aesthetics.
+Minimalist Modern Design — Georgian Wine Berlin
+Clean, contemporary global theme with light background, sophisticated accents.
+Focus: simplicity, elegance, professional typography.
 */
 
 @import "tailwindcss";
@@ -49,39 +49,41 @@ Every surface should reinforce restrained luxury rather than generic SaaS aesthe
 }
 
 :root {
-  --radius: 1.6rem;
-  --background: oklch(0.12 0.014 37);
-  --foreground: oklch(0.93 0.018 82);
-  --card: oklch(0.16 0.015 38);
-  --card-foreground: oklch(0.94 0.018 82);
-  --popover: oklch(0.15 0.014 38);
-  --popover-foreground: oklch(0.94 0.018 82);
-  --primary: oklch(0.72 0.11 61);
-  --primary-foreground: oklch(0.18 0.014 34);
-  --secondary: oklch(0.2 0.014 38);
-  --secondary-foreground: oklch(0.92 0.015 82);
-  --muted: oklch(0.19 0.012 38);
-  --muted-foreground: oklch(0.73 0.02 74);
-  --accent: oklch(0.23 0.016 45);
-  --accent-foreground: oklch(0.93 0.018 82);
+  --radius: 0.5rem;
+  /* Light minimalist palette */
+  --background: oklch(0.98 0.001 0);
+  --foreground: oklch(0.15 0.005 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.005 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.005 0);
+  /* Amber-brown accent */
+  --primary: oklch(0.58 0.12 45);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.9 0.01 0);
+  --secondary-foreground: oklch(0.15 0.005 0);
+  --muted: oklch(0.85 0.005 0);
+  --muted-foreground: oklch(0.5 0.01 0);
+  --accent: oklch(0.25 0.01 0);
+  --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.62 0.21 28);
-  --destructive-foreground: oklch(0.97 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 10%);
-  --ring: oklch(0.7 0.11 61);
-  --chart-1: oklch(0.72 0.11 61);
-  --chart-2: oklch(0.6 0.1 45);
-  --chart-3: oklch(0.53 0.08 20);
-  --chart-4: oklch(0.42 0.06 80);
-  --chart-5: oklch(0.82 0.05 80);
-  --sidebar: oklch(0.14 0.013 37);
-  --sidebar-foreground: oklch(0.94 0.018 82);
-  --sidebar-primary: oklch(0.72 0.11 61);
-  --sidebar-primary-foreground: oklch(0.18 0.014 34);
-  --sidebar-accent: oklch(0.22 0.014 40);
-  --sidebar-accent-foreground: oklch(0.94 0.018 82);
-  --sidebar-border: oklch(1 0 0 / 12%);
-  --sidebar-ring: oklch(0.7 0.11 61);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.9 0.005 0);
+  --input: oklch(0.95 0.005 0);
+  --ring: oklch(0.58 0.12 45);
+  --chart-1: oklch(0.58 0.12 45);
+  --chart-2: oklch(0.7 0.08 40);
+  --chart-3: oklch(0.5 0.1 50);
+  --chart-4: oklch(0.6 0.06 30);
+  --chart-5: oklch(0.75 0.04 60);
+  --sidebar: oklch(0.98 0.001 0);
+  --sidebar-foreground: oklch(0.15 0.005 0);
+  --sidebar-primary: oklch(0.58 0.12 45);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.9 0.01 0);
+  --sidebar-accent-foreground: oklch(0.15 0.005 0);
+  --sidebar-border: oklch(0.9 0.005 0);
+  --sidebar-ring: oklch(0.58 0.12 45);
 }
 
 .dark {
@@ -123,11 +125,11 @@ Every surface should reinforce restrained luxury rather than generic SaaS aesthe
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: "IBM Plex Sans", sans-serif;
-    background:
-      radial-gradient(circle at top left, rgba(153, 98, 56, 0.2), transparent 26%),
-      radial-gradient(circle at 85% 15%, rgba(108, 67, 43, 0.2), transparent 22%),
-      linear-gradient(180deg, #130f0d 0%, #0c0908 55%, #090706 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
   }
 
@@ -137,8 +139,23 @@ Every surface should reinforce restrained luxury rather than generic SaaS aesthe
   h4,
   h5,
   h6 {
-    font-family: "Cormorant Garamond", serif;
-    letter-spacing: -0.025em;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.4;
   }
 
   button,
@@ -177,541 +194,5 @@ Every surface should reinforce restrained luxury rather than generic SaaS aesthe
   .flex {
     min-height: 0;
     min-width: 0;
-  }
-
-  .nav-link {
-    @apply relative text-[0.78rem] uppercase tracking-[0.22em] text-stone-300 transition-colors duration-300 hover:text-stone-50;
-  }
-
-  .nav-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -0.5rem;
-    width: 100%;
-    height: 1px;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 250ms ease;
-    background: linear-gradient(90deg, rgba(204, 147, 96, 0), rgba(204, 147, 96, 0.9), rgba(204, 147, 96, 0));
-  }
-
-  .nav-link:hover::after,
-  .nav-link-active::after {
-    transform: scaleX(1);
-  }
-
-  .nav-link-active {
-    @apply text-stone-50;
-  }
-
-  .nav-link-mobile {
-    @apply rounded-[1.2rem] border border-white/8 bg-white/[0.03] px-4 py-3 text-sm uppercase tracking-[0.18em] text-stone-200 transition hover:bg-white/[0.06];
-  }
-
-  .language-switcher {
-    @apply inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1;
-  }
-
-  .language-chip {
-    @apply rounded-full px-3 py-2 text-[0.72rem] uppercase tracking-[0.18em] text-stone-400 transition hover:text-stone-100;
-  }
-
-  .language-chip-active {
-    background: rgba(218, 189, 158, 0.13);
-    color: #f8eadb;
-  }
-
-  .cart-pill {
-    @apply inline-flex h-11 min-w-11 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 text-sm text-stone-100 transition hover:bg-white/[0.08];
-  }
-
-  .hero-shell {
-    position: relative;
-    background:
-      radial-gradient(circle at 20% 20%, rgba(182, 123, 71, 0.13), transparent 26%),
-      radial-gradient(circle at 76% 18%, rgba(145, 90, 61, 0.15), transparent 24%),
-      linear-gradient(180deg, rgba(21, 15, 13, 0.98) 0%, rgba(12, 9, 8, 1) 100%);
-  }
-
-  .hero-noise {
-    position: absolute;
-    inset: 0;
-    opacity: 0.08;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size: 120px 120px;
-    mask-image: radial-gradient(circle at center, black 30%, transparent 90%);
-    pointer-events: none;
-  }
-
-  .hero-panel {
-    position: relative;
-    z-index: 2;
-    max-width: 32rem;
-    margin-left: auto;
-    padding: 2rem;
-    border-radius: 2rem;
-    border: 1px solid rgba(255,255,255,0.09);
-    background:
-      linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%),
-      rgba(29, 21, 18, 0.72);
-    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
-    backdrop-filter: blur(24px);
-  }
-
-  .hero-kicker,
-  .section-label {
-    @apply text-[0.72rem] uppercase tracking-[0.28em] text-[rgba(220,192,160,0.78)];
-  }
-
-  .hero-cutout {
-    position: absolute;
-    right: 0;
-    bottom: -0.5rem;
-    width: min(34rem, 100%);
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.55));
-    animation: floatCutout 9s ease-in-out infinite;
-  }
-
-  .hero-orbit {
-    position: absolute;
-    border-radius: 9999px;
-    border: 1px solid rgba(223, 193, 165, 0.1);
-  }
-
-  .hero-orbit-one {
-    inset: 6% 4% 15% 24%;
-  }
-
-  .hero-orbit-two {
-    inset: 16% 12% 6% 32%;
-  }
-
-  .hero-button-primary {
-    background: linear-gradient(135deg, rgba(214, 160, 108, 1), rgba(172, 114, 64, 1));
-    color: rgb(32, 16, 11);
-    box-shadow: 0 18px 35px rgba(172, 114, 64, 0.25);
-  }
-
-  .hero-button-secondary {
-    background: rgba(255,255,255,0.03);
-  }
-
-  .hero-meta-chip,
-  .info-pill,
-  .info-panel-chip,
-  .footer-chip {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs uppercase tracking-[0.18em] text-stone-300;
-  }
-
-  .metric-card {
-    @apply rounded-[1.5rem] border border-white/10 bg-black/15 p-4;
-  }
-
-  .metric-card span {
-    @apply text-[0.72rem] uppercase tracking-[0.2em] text-stone-400;
-  }
-
-  .metric-card strong {
-    @apply mt-3 block text-base font-medium text-stone-100;
-  }
-
-  .section-shell {
-    padding-top: 5.5rem;
-    padding-bottom: 5.5rem;
-  }
-
-  .section-title {
-    @apply mt-3 max-w-4xl text-4xl leading-[1] text-stone-100 md:text-5xl;
-  }
-
-  .section-copy {
-    @apply mt-4 text-base leading-8 text-stone-300/88;
-  }
-
-  .section-heading-row {
-    @apply flex flex-col justify-between gap-4 lg:flex-row lg:items-end;
-  }
-
-  .category-card,
-  .story-card,
-  .filter-panel,
-  .voucher-panel,
-  .checkout-panel,
-  .event-card,
-  .blog-card,
-  .reservation-form,
-  .map-shell,
-  .sheet-card,
-  .login-card,
-  .visual-note-card,
-  .detail-panel,
-  .empty-cart-card {
-    border: 1px solid rgba(255,255,255,0.08);
-    background:
-      linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%),
-      rgba(24, 18, 15, 0.85);
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
-  }
-
-  .category-card,
-  .story-card,
-  .blog-card,
-  .event-card,
-  .login-card,
-  .visual-note-card,
-  .detail-panel,
-  .empty-cart-card {
-    @apply rounded-[1.7rem];
-  }
-
-  .story-card {
-    @apply p-6;
-  }
-
-  .story-card h3,
-  .login-card h3 {
-    @apply text-2xl text-stone-100;
-  }
-
-  .story-card p,
-  .login-card p,
-  .detail-panel p {
-    @apply mt-3 text-sm leading-7 text-stone-300/85;
-  }
-
-  .about-visual-stack {
-    position: relative;
-    padding-right: 2rem;
-  }
-
-  .visual-frame {
-    @apply rounded-[2rem] border border-white/10 p-6;
-  }
-
-  .visual-frame-dark {
-    background:
-      radial-gradient(circle at top, rgba(182, 123, 71, 0.09), transparent 34%),
-      rgba(23, 16, 13, 0.96);
-    min-height: 28rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .visual-note-card {
-    position: relative;
-    margin-top: -3rem;
-    margin-left: auto;
-    max-width: 20rem;
-    padding: 1.5rem;
-  }
-
-  .filter-panel,
-  .reservation-form,
-  .voucher-panel,
-  .checkout-panel,
-  .sheet-card {
-    @apply rounded-[2rem] p-6;
-  }
-
-  .field-wrap {
-    @apply flex flex-col gap-2;
-  }
-
-  .field-wrap span {
-    @apply text-[0.72rem] uppercase tracking-[0.22em] text-stone-400;
-  }
-
-  .field-input,
-  .field-select,
-  .field-textarea {
-    @apply min-h-12 rounded-[1.3rem] border border-white/10 bg-white/[0.03] px-4 text-stone-100 shadow-none outline-none transition placeholder:text-stone-500 focus:border-[rgba(204,147,96,0.55)] focus:ring-0;
-  }
-
-  .field-select {
-    appearance: none;
-    background-image:
-      linear-gradient(45deg, transparent 50%, rgba(228, 207, 184, 0.9) 50%),
-      linear-gradient(135deg, rgba(228, 207, 184, 0.9) 50%, transparent 50%);
-    background-position:
-      calc(100% - 1.25rem) calc(50% - 1px),
-      calc(100% - 0.9rem) calc(50% - 1px);
-    background-size: 6px 6px, 6px 6px;
-    background-repeat: no-repeat;
-  }
-
-  .field-textarea {
-    @apply py-3;
-  }
-
-  .price-stack {
-    @apply rounded-[1.3rem] border border-white/10 bg-white/[0.03] px-4 py-3;
-  }
-
-  .price-stack input {
-    width: 100%;
-    accent-color: rgba(204, 147, 96, 1);
-  }
-
-  .price-stack strong {
-    @apply mt-3 block text-sm text-stone-100;
-  }
-
-  .product-grid {
-    @apply grid gap-6 lg:grid-cols-2 xl:grid-cols-3;
-  }
-
-  .product-card {
-    @apply overflow-hidden rounded-[1.9rem] border border-white/8 bg-[rgba(25,18,15,0.9)] shadow-[0_30px_80px_rgba(0,0,0,0.22)];
-  }
-
-  .product-image-shell,
-  .event-image-shell,
-  .modal-image-shell,
-  .reservation-image-card {
-    position: relative;
-    overflow: hidden;
-    background:
-      radial-gradient(circle at 50% 15%, rgba(192, 139, 88, 0.18), transparent 35%),
-      linear-gradient(180deg, rgba(44, 29, 22, 1), rgba(20, 15, 13, 1));
-  }
-
-  .product-image-shell {
-    min-height: 17rem;
-    padding: 1.5rem;
-  }
-
-  .event-image-shell {
-    min-height: 14rem;
-    padding: 1.25rem;
-  }
-
-  .product-image,
-  .event-image,
-  .blog-image {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    transition: transform 400ms ease;
-  }
-
-  .product-card:hover .product-image,
-  .event-card:hover .event-image,
-  .blog-card:hover .blog-image {
-    transform: translateY(-0.35rem) scale(1.02);
-  }
-
-  .product-badge {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    border-radius: 9999px;
-    border: 1px solid rgba(255,255,255,0.1);
-    background: rgba(13, 10, 9, 0.6);
-    color: rgba(239, 221, 198, 0.96);
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    font-size: 0.68rem;
-  }
-
-  .ghost-icon-button {
-    @apply inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-stone-200 transition hover:bg-white/[0.08];
-  }
-
-  .voucher-panel {
-    @apply grid gap-6 md:grid-cols-[auto_1fr] md:items-center;
-  }
-
-  .checkout-panel {
-    @apply space-y-6;
-  }
-
-  .cart-header,
-  .subtotal-row,
-  .cart-row,
-  .contact-item,
-  .event-meta-grid div,
-  .login-card,
-  .blog-card,
-  .footer-chip {
-    @apply flex items-center justify-between gap-4;
-  }
-
-  .cart-row {
-    @apply rounded-[1.4rem] border border-white/8 bg-white/[0.03] px-4 py-4;
-  }
-
-  .subtotal-row {
-    @apply rounded-[1.4rem] border border-white/10 bg-black/15 px-4 py-4 text-sm uppercase tracking-[0.18em] text-stone-300;
-  }
-
-  .quantity-switcher {
-    @apply inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-3 py-2 text-sm text-stone-100;
-  }
-
-  .quantity-switcher button {
-    @apply inline-flex h-6 w-6 items-center justify-center rounded-full border border-white/10 bg-transparent text-stone-100 transition hover:bg-white/[0.08];
-  }
-
-  .event-card {
-    @apply overflow-hidden;
-  }
-
-  .event-meta-grid {
-    @apply grid gap-3 text-sm text-stone-400;
-  }
-
-  .event-meta-grid div,
-  .contact-item {
-    @apply justify-start rounded-[1.2rem] border border-white/8 bg-white/[0.03] px-4 py-3;
-  }
-
-  .blog-card {
-    @apply rounded-[1.8rem] p-5;
-    justify-content: flex-start;
-  }
-
-  .blog-image {
-    @apply h-32 w-32 shrink-0 rounded-[1.5rem] bg-[rgba(24,18,15,1)] p-3;
-  }
-
-  .reservation-image-card {
-    @apply rounded-[1.8rem] p-5;
-  }
-
-  .login-card {
-    @apply rounded-[1.7rem] p-6 text-left transition hover:-translate-y-1 hover:border-[rgba(204,147,96,0.2)];
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-
-  .map-shell {
-    @apply overflow-hidden rounded-[2rem] p-2;
-  }
-
-  .sheet-card {
-    background:
-      linear-gradient(180deg, rgba(204,147,96,0.08) 0%, rgba(255,255,255,0.03) 100%),
-      rgba(24, 18, 15, 0.85);
-  }
-
-  .contact-stack {
-    @apply grid gap-3;
-  }
-
-  .detail-panel {
-    @apply p-4;
-  }
-
-  .detail-panel span {
-    @apply text-[0.7rem] uppercase tracking-[0.2em] text-stone-400;
-  }
-
-  .modal-backdrop {
-    position: fixed;
-    inset: 0;
-    z-index: 60;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    background: rgba(8, 6, 5, 0.78);
-    backdrop-filter: blur(10px);
-  }
-
-  .product-modal {
-    position: relative;
-    width: min(70rem, 100%);
-    max-height: calc(100vh - 2rem);
-    overflow: auto;
-    border-radius: 2rem;
-    border: 1px solid rgba(255,255,255,0.1);
-    background: linear-gradient(180deg, rgba(24,18,15,0.98), rgba(14,10,8,1));
-    padding: 1.5rem;
-    box-shadow: 0 30px 100px rgba(0,0,0,0.45);
-  }
-
-  .modal-close {
-    @apply absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-stone-100 transition hover:bg-white/[0.1];
-  }
-
-  .empty-cart-card {
-    @apply p-6 text-sm leading-7 text-stone-300/86;
-  }
-
-  @media (min-width: 640px) {
-    .container {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .container {
-      padding-left: 2rem;
-      padding-right: 2rem;
-      max-width: 1320px;
-    }
-  }
-
-  @media (max-width: 1023px) {
-    .hero-panel {
-      margin-left: 0;
-      margin-right: auto;
-    }
-
-    .hero-cutout {
-      position: relative;
-      width: min(26rem, 88vw);
-      right: auto;
-      bottom: auto;
-      margin-top: 2rem;
-    }
-
-    .about-visual-stack {
-      padding-right: 0;
-    }
-  }
-
-  @media (max-width: 767px) {
-    .section-shell {
-      padding-top: 4.25rem;
-      padding-bottom: 4.25rem;
-    }
-
-    .section-title {
-      font-size: 2.4rem;
-    }
-
-    .hero-panel {
-      padding: 1.4rem;
-      border-radius: 1.6rem;
-    }
-
-    .blog-card {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .blog-image {
-      width: 100%;
-      height: 12rem;
-      object-fit: contain;
-    }
-  }
-}
-
-@keyframes floatCutout {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-12px);
   }
 }
