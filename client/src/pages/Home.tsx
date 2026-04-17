@@ -1,6 +1,6 @@
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Gift, Truck, Users } from "lucide-react";
+import { ArrowRight, Wine, Calendar, Users, Search } from "lucide-react";
 
 type Language = "DE" | "EN" | "KA";
 
@@ -14,79 +14,79 @@ export default function Home({ language }: HomeProps) {
 
   const content = {
     DE: {
-      title: "Weinhaus Tbilisi",
-      subtitle: "Authentische georgische Weine aus den Bergregionen des Kaukasus",
-      description: "Entdecken Sie 8000 Jahre Weinkultur. Von klassischen Flaschenweinen bis zu experimentellen Amber Wines — jede Flasche erzählt eine Geschichte von Terroir, Handwerk und Tradition.",
-      cta: "Zu den Produkten",
-      about: "Über uns",
+      welcome: "Willkommen bei Weinhaus Tbilisi",
+      tagline: "Authentische georgische Weine seit 8000 Jahren",
+      browseWines: "Weine durchsuchen",
       
-      // Promotions
-      promotions: "Spezialangebote",
-      promo1Title: "Willkommensbonus",
-      promo1Desc: "Registrieren Sie sich und erhalten Sie 10% Rabatt auf Ihre erste Bestellung",
-      promo2Title: "Mengenrabatt",
-      promo2Desc: "Bestellen Sie 6 Flaschen und zahlen Sie nur für 5",
-      promo3Title: "Kostenloser Versand",
-      promo3Desc: "Bei Bestellungen ab 12 Flaschen versandkostenfrei nach Hause",
+      mainCategories: "Hauptkategorien",
+      wines: "Weine",
+      winesDesc: "Entdecken Sie unsere Auswahl an authentischen georgischen Weinen",
+      events: "Veranstaltungen",
+      eventsDesc: "Treten Sie unseren Verkostungen und Weinabenden bei",
+      club: "Weinclub",
+      clubDesc: "Werden Sie Mitglied und genießen Sie exklusive Vorteile",
       
-      // Events
+      specialOffers: "Spezialangebote",
+      offer1: "10% Rabatt für neue Kunden",
+      offer2: "6 Flaschen = Preis für 5",
+      offer3: "Kostenloser Versand ab 12 Flaschen",
+      
       upcomingEvents: "Kommende Veranstaltungen",
-      viewAllEvents: "Alle Events anzeigen",
+      viewAll: "Alle anzeigen",
       
-      // Wine Club
-      wineClub: "Weinclub-Mitgliedschaft",
-      wineClubDesc: "Werden Sie Mitglied unseres exklusiven Weinclubs und genießen Sie monatliche Verkostungen, spezielle Rabatte und Zugang zu limitierten Weinen.",
-      joinClub: "Jetzt beitreten",
+      aboutUs: "Über Weinhaus Tbilisi",
+      aboutDesc: "Wir bringen die authentische Weinkultur Georgiens nach Berlin. Jede Flasche erzählt eine Geschichte von Tradition, Handwerk und Leidenschaft.",
+      learnMore: "Mehr erfahren",
     },
     EN: {
-      title: "Weinhaus Tbilisi",
-      subtitle: "Authentic Georgian wines from the mountain regions of the Caucasus",
-      description: "Discover 8,000 years of wine culture. From classic bottled wines to experimental amber wines — each bottle tells a story of terroir, craftsmanship, and tradition.",
-      cta: "Browse Products",
-      about: "About Us",
+      welcome: "Welcome to Weinhaus Tbilisi",
+      tagline: "Authentic Georgian wines for 8,000 years",
+      browseWines: "Browse wines",
       
-      // Promotions
-      promotions: "Special Offers",
-      promo1Title: "Welcome Bonus",
-      promo1Desc: "Sign up and get 10% off your first order",
-      promo2Title: "Bulk Discount",
-      promo2Desc: "Order 6 bottles and pay for only 5",
-      promo3Title: "Free Shipping",
-      promo3Desc: "Free delivery on orders of 12 bottles or more",
+      mainCategories: "Main Categories",
+      wines: "Wines",
+      winesDesc: "Discover our selection of authentic Georgian wines",
+      events: "Events",
+      eventsDesc: "Join our tastings and wine evenings",
+      club: "Wine Club",
+      clubDesc: "Become a member and enjoy exclusive benefits",
       
-      // Events
+      specialOffers: "Special Offers",
+      offer1: "10% discount for new customers",
+      offer2: "Buy 6 bottles, pay for 5",
+      offer3: "Free shipping on orders of 12+ bottles",
+      
       upcomingEvents: "Upcoming Events",
-      viewAllEvents: "View All Events",
+      viewAll: "View all",
       
-      // Wine Club
-      wineClub: "Wine Club Membership",
-      wineClubDesc: "Join our exclusive wine club and enjoy monthly tastings, special discounts, and access to limited-edition wines.",
-      joinClub: "Join Now",
+      aboutUs: "About Weinhaus Tbilisi",
+      aboutDesc: "We bring the authentic wine culture of Georgia to Berlin. Each bottle tells a story of tradition, craftsmanship, and passion.",
+      learnMore: "Learn more",
     },
     KA: {
-      title: "Weinhaus Tbilisi",
-      subtitle: "ქართული ღვინო კავკასიის მთიანი რეგიონებიდან",
-      description: "აღმოაჩინეთ 8000 წლის ღვინის კულტურა. კლასიკური ბოთლებიდან ექსპერიმენტულ ქარვის ღვინომდე — თითოეული ბოთლი ითხრობს ტერუარის, ხელოვნურობის და ტრადიციის ისტორიას.",
-      cta: "პროდუქტები",
-      about: "ჩვენ შესახებ",
+      welcome: "კეთილი იყოს თქვენი მობრძანება Weinhaus Tbilisi-ში",
+      tagline: "ქართული ღვინის აუთენტური კულტურა 8000 წელი",
+      browseWines: "ღვინის ნახვა",
       
-      // Promotions
-      promotions: "სპეციალური შეთავაზებები",
-      promo1Title: "მისასალმებელი ბონუსი",
-      promo1Desc: "დარეგისტრირდით და მიიღეთ 10% ფასდაკლება პირველ შეკვეთაზე",
-      promo2Title: "რაოდენობის ფასდაკლება",
-      promo2Desc: "შეუკვეთეთ 6 ბოთლი და გადაიხადეთ მხოლოდ 5-ის საფასური",
-      promo3Title: "უფასო დელივერი",
-      promo3Desc: "12 ბოთლის ზემოთ შეკვეთებზე უფასო ტრანსპორტირება",
+      mainCategories: "მთავარი კატეგორიები",
+      wines: "ღვინე",
+      winesDesc: "აღმოაჩინეთ ქართული ღვინის აუთენტური კოლექცია",
+      events: "ღონისძიებები",
+      eventsDesc: "მონაწილეობა მიიღეთ დეგუსტაციებსა და ღვინის საღამოებში",
+      club: "ღვინის კლუბი",
+      clubDesc: "გახდით წევრი და ისიამოვნეთ ექსკლუზიური უპირატესობებით",
       
-      // Events
-      upcomingEvents: "მოახლოებელი ღონისძიებები",
-      viewAllEvents: "ყველა ღონისძიება",
+      specialOffers: "სპეციალური შეთავაზებები",
+      offer1: "10% ფასდაკლება ახალი მომხმარებლებისთვის",
+      offer2: "6 ბოთლი = 5 ბოთლის ფასი",
+      offer3: "უფასო ტრანსპორტირება 12+ ბოთლიდან",
       
-      // Wine Club
-      wineClub: "ღვინის კლუბის წევრობა",
-      wineClubDesc: "გახდით ჩვენი ექსკლუზიური ღვინის კლუბის წევრი და ისიამოვნეთ ყოველთვიური დეგუსტაციებით, სპეციალური ფასდაკლებებით და შეზღუდული გამოშუშვების ღვინოებზე წვდომით.",
-      joinClub: "ახლა გაწევრიანდი",
+      upcomingEvents: "მომავალი ღონისძიებები",
+      viewAll: "ყველა ნახვა",
+      
+      aboutUs: "Weinhaus Tbilisi-ს შესახებ",
+      aboutDesc: "ჩვენ ქართული ღვინის აუთენტურ კულტურას ბერლინში მოვიტანთ. თითოეული ბოთლი ტრადიციის, ხელოვნებისა და ვნების ისტორია ეუბნება.",
+      learnMore: "მეტი ინფორმაცია",
     },
   };
 
@@ -97,7 +97,7 @@ export default function Home({ language }: HomeProps) {
       id: "amber-masterclass",
       name_DE: "Amber Wine Masterclass",
       name_EN: "Amber Wine Masterclass",
-      name_KA: "ქარვის ღვინის მასტერკლასი",
+      name_KA: "ქარვისფერი ღვინის მასტერკლასი",
       date: "2026-05-14",
       price: 48,
     },
@@ -112,142 +112,128 @@ export default function Home({ language }: HomeProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col">
-      {/* Promotions Section */}
-      <section className="bg-secondary/50 py-16 px-4">
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Hero Section - Simple and Clean */}
+      <section className="py-20 px-4 text-center">
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4">{lang.welcome}</h1>
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8">{lang.tagline}</p>
+          <Button
+            onClick={() => setLocation("/products")}
+            size="lg"
+            className="bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-3 text-lg"
+          >
+            {lang.browseWines}
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </Button>
+        </div>
+      </section>
+
+      {/* Main Categories - 3 Simple Cards */}
+      <section className="py-16 px-4 bg-secondary/30">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">{lang.promotions}</h2>
+          <h2 className="text-4xl font-bold mb-12 text-center">{lang.mainCategories}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Promo 1: Registration Discount */}
-            <div className="bg-card rounded-lg p-8 border border-border hover:border-accent transition">
-              <div className="flex items-center justify-center w-12 h-12 bg-accent/20 rounded-lg mb-4">
-                <Sparkles className="w-6 h-6 text-accent" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">{lang.promo1Title}</h3>
-              <p className="text-muted-foreground mb-6">{lang.promo1Desc}</p>
-              <Button
-                onClick={() => setLocation("/products")}
-                className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
-              >
-                {language === "DE" ? "Jetzt registrieren" : language === "EN" ? "Sign Up Now" : "ახლა დარეგისტრირდი"}
-              </Button>
-            </div>
+            {/* Wines Card */}
+            <button
+              onClick={() => setLocation("/products")}
+              className="bg-card rounded-lg p-8 border border-border hover:border-accent transition text-left"
+            >
+              <Wine className="w-12 h-12 text-accent mb-4" />
+              <h3 className="text-2xl font-bold mb-2">{lang.wines}</h3>
+              <p className="text-muted-foreground">{lang.winesDesc}</p>
+            </button>
 
-            {/* Promo 2: Bulk Discount */}
-            <div className="bg-card rounded-lg p-8 border border-border hover:border-accent transition">
-              <div className="flex items-center justify-center w-12 h-12 bg-accent/20 rounded-lg mb-4">
-                <Gift className="w-6 h-6 text-accent" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">{lang.promo2Title}</h3>
-              <p className="text-muted-foreground mb-6">{lang.promo2Desc}</p>
-              <Button
-                onClick={() => setLocation("/products")}
-                className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
-              >
-                {language === "DE" ? "Zum Shop" : language === "EN" ? "Shop Now" : "მაღაზიაში"}
-              </Button>
-            </div>
+            {/* Events Card */}
+            <button
+              onClick={() => setLocation("/events")}
+              className="bg-card rounded-lg p-8 border border-border hover:border-accent transition text-left"
+            >
+              <Calendar className="w-12 h-12 text-accent mb-4" />
+              <h3 className="text-2xl font-bold mb-2">{lang.events}</h3>
+              <p className="text-muted-foreground">{lang.eventsDesc}</p>
+            </button>
 
-            {/* Promo 3: Free Shipping */}
-            <div className="bg-card rounded-lg p-8 border border-border hover:border-accent transition">
-              <div className="flex items-center justify-center w-12 h-12 bg-accent/20 rounded-lg mb-4">
-                <Truck className="w-6 h-6 text-accent" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">{lang.promo3Title}</h3>
-              <p className="text-muted-foreground mb-6">{lang.promo3Desc}</p>
-              <Button
-                onClick={() => setLocation("/products")}
-                className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
-              >
-                {language === "DE" ? "Zum Shop" : language === "EN" ? "Shop Now" : "მაღაზიაში"}
-              </Button>
+            {/* Wine Club Card */}
+            <button
+              onClick={() => setLocation("/wine-club")}
+              className="bg-card rounded-lg p-8 border border-border hover:border-accent transition text-left"
+            >
+              <Users className="w-12 h-12 text-accent mb-4" />
+              <h3 className="text-2xl font-bold mb-2">{lang.club}</h3>
+              <p className="text-muted-foreground">{lang.clubDesc}</p>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Special Offers - Simple List */}
+      <section className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold mb-12 text-center">{lang.specialOffers}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-accent/10 rounded-lg p-6 border-l-4 border-accent">
+              <p className="text-lg font-semibold">{lang.offer1}</p>
+            </div>
+            <div className="bg-accent/10 rounded-lg p-6 border-l-4 border-accent">
+              <p className="text-lg font-semibold">{lang.offer2}</p>
+            </div>
+            <div className="bg-accent/10 rounded-lg p-6 border-l-4 border-accent">
+              <p className="text-lg font-semibold">{lang.offer3}</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Upcoming Events Section */}
-      <section className="py-16 px-4">
+      {/* Upcoming Events - Simple Preview */}
+      <section className="py-16 px-4 bg-secondary/30">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between mb-12">
-            <h2 className="text-3xl font-bold">{lang.upcomingEvents}</h2>
+            <h2 className="text-4xl font-bold">{lang.upcomingEvents}</h2>
             <Button
               onClick={() => setLocation("/events")}
               variant="outline"
               className="border-border hover:bg-secondary"
             >
-              {lang.viewAllEvents} <ArrowRight className="w-4 h-4 ml-2" />
+              {lang.viewAll} <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {upcomingEventsList.map((event) => (
-              <div
+              <button
                 key={event.id}
                 onClick={() => setLocation(`/event/${event.id}`)}
-                className="bg-card rounded-lg p-8 border border-border hover:border-accent transition cursor-pointer"
+                className="bg-card rounded-lg p-6 border border-border hover:border-accent transition text-left"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">
-                      {language === "DE" ? event.name_DE : language === "EN" ? event.name_EN : event.name_KA}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {new Date(event.date).toLocaleDateString(
-                        language === "DE" ? "de-DE" : language === "EN" ? "en-US" : "ka-GE"
-                      )}
-                    </p>
-                  </div>
-                  <div className="text-accent font-semibold">{event.price}€</div>
-                </div>
-                <Button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setLocation(`/event/${event.id}`);
-                  }}
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
-                >
-                  {language === "DE" ? "Details" : language === "EN" ? "Details" : "დეტალები"}
-                </Button>
-              </div>
+                <h3 className="text-xl font-bold mb-2">
+                  {language === "DE" ? event.name_DE : language === "EN" ? event.name_EN : event.name_KA}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {new Date(event.date).toLocaleDateString(
+                    language === "DE" ? "de-DE" : language === "EN" ? "en-US" : "ka-GE"
+                  )}
+                </p>
+                <p className="text-accent font-bold">{event.price}€</p>
+              </button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Wine Club Section */}
-      <section className="bg-secondary/50 py-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-card rounded-lg p-12 border border-border">
-            <div className="flex items-center justify-center w-16 h-16 bg-accent/20 rounded-lg mb-6 mx-auto">
-              <Users className="w-8 h-8 text-accent" />
-            </div>
-            <h2 className="text-3xl font-bold text-center mb-4">{lang.wineClub}</h2>
-            <p className="text-lg text-muted-foreground text-center mb-8 max-w-2xl mx-auto">
-              {lang.wineClubDesc}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                onClick={() => setLocation("/reservation")}
-                className="bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-3 text-base font-medium"
-              >
-                {lang.joinClub}
-              </Button>
-              <Button
-                onClick={() => setLocation("/about")}
-                variant="outline"
-                className="border-border hover:bg-secondary px-8 py-3 text-base font-medium"
-              >
-                {language === "DE" ? "Mehr erfahren" : language === "EN" ? "Learn More" : "მეტი ინფორმაცია"}
-              </Button>
-            </div>
-          </div>
+      {/* About Section - Simple Info */}
+      <section className="py-16 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-6">{lang.aboutUs}</h2>
+          <p className="text-lg text-muted-foreground mb-8">{lang.aboutDesc}</p>
+          <Button
+            onClick={() => setLocation("/about")}
+            variant="outline"
+            className="border-border hover:bg-secondary"
+          >
+            {lang.learnMore}
+          </Button>
         </div>
       </section>
-
-      {/* Decorative Footer */}
-      <div className="border-t border-border py-8 px-4 text-center text-sm text-muted-foreground">
-        <p>{language === "DE" ? "Willkommen in der Welt georgischer Weine" : language === "EN" ? "Welcome to Georgian Wine Culture" : "ქართული ღვინის სამყაროში"}</p>
-      </div>
     </div>
   );
 }
