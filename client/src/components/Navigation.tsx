@@ -22,37 +22,28 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
 
   const navItems = {
     DE: {
-      products: "Produkte",
-      shop: "Mägazin & Bar",
-      about: "Über uns",
-      events: "Events",
-      blog: "Blog",
+      products: "Weine",
+      about: "Kontakt",
+      events: "Veranstaltungen",
       wineClub: "Weinclub",
-      reservation: "Reservierung",
       login: "Anmelden",
       profile: "Profil",
       logout: "Abmelden",
     },
     EN: {
-      products: "Products",
-      shop: "Shop & Bar",
-      about: "About",
+      products: "Wines",
+      about: "Contact",
       events: "Events",
-      blog: "Blog",
       wineClub: "Wine Club",
-      reservation: "Reservation",
       login: "Login",
       profile: "Profile",
       logout: "Logout",
     },
     KA: {
-      products: "პროდუქტები",
-      shop: "მაღაზია & ბარი",
-      about: "ჩვენ შესახებ",
+      products: "ღვინე",
+      about: "კონტაქტი",
       events: "ღონისძიებები",
-      blog: "ბლოგი",
       wineClub: "ღვინის კლუბი",
-      reservation: "რეზერვაცია",
       login: "შესვლა",
       profile: "პროფილი",
       logout: "გამოსვლა",
@@ -67,8 +58,8 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+    <header className="bg-background border-b border-border sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <button
           onClick={() => handleNavClick("/")}
@@ -87,28 +78,10 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
             {items.products}
           </button>
           <button
-            onClick={() => handleNavClick("/shop")}
-            className="hover:text-accent transition"
-          >
-            {items.shop}
-          </button>
-          <button
-            onClick={() => handleNavClick("/about")}
-            className="hover:text-accent transition"
-          >
-            {items.about}
-          </button>
-          <button
             onClick={() => handleNavClick("/events")}
             className="hover:text-accent transition"
           >
             {items.events}
-          </button>
-          <button
-            onClick={() => handleNavClick("/blog")}
-            className="hover:text-accent transition"
-          >
-            {items.blog}
           </button>
           <button
             onClick={() => handleNavClick("/wine-club")}
@@ -117,17 +90,17 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
             {items.wineClub}
           </button>
           <button
-            onClick={() => handleNavClick("/reservation")}
+            onClick={() => handleNavClick("/about")}
             className="hover:text-accent transition"
           >
-            {items.reservation}
+            {items.about}
           </button>
         </nav>
 
         {/* Right Actions */}
         <div className="flex items-center gap-3">
           {/* Language Selector */}
-          <div className="flex gap-1 border border-border rounded-lg p-1 bg-secondary" style={{borderRadius: '1px', display: 'block'}}>
+          <div className="flex gap-1 border border-border rounded-lg p-1 bg-secondary">
             {(["DE", "EN", "KA"] as Language[]).map((lang) => (
               <button
                 key={lang}
@@ -150,56 +123,52 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
           >
             <ShoppingCart className="w-5 h-5" />
             {cartCount > 0 && (
-              <span className="absolute top-0 right-0 w-4 h-4 bg-accent text-accent-foreground text-xs rounded-full flex items-center justify-center">
+              <span className="absolute top-1 right-1 bg-accent text-accent-foreground text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                 {cartCount}
               </span>
             )}
           </button>
 
           {/* User Menu */}
-          {user ? (
-            <div className="relative">
-              <button
-                onClick={() => setUserMenuOpen(!userMenuOpen)}
-                className="p-2 hover:bg-secondary rounded-lg transition"
-              >
-                <User className="w-5 h-5" />
-              </button>
-              {userMenuOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-background border border-border rounded-lg shadow-lg z-50">
-                  <button
-                    onClick={() => {
-                      handleNavClick("/profile");
-                      setUserMenuOpen(false);
-                    }}
-                    className="w-full text-left px-4 py-2 text-sm hover:bg-secondary transition"
-                  >
-                    {items.profile}
-                  </button>
-                  <button
-                    onClick={() => {
-                      logout();
-                      setUserMenuOpen(false);
-                      setLocation("/");
-                    }}
-                    className="w-full text-left px-4 py-2 text-sm hover:bg-secondary transition flex items-center gap-2 border-t border-border"
-                  >
-                    <LogOut className="w-4 h-4" />
-                    {items.logout}
-                  </button>
-                </div>
-              )}
-            </div>
-          ) : (
-            <a
-              href={getLoginUrl()}
-              className="px-3 py-2 text-sm font-medium bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition"
+          <div className="relative">
+            <button
+              onClick={() => setUserMenuOpen(!userMenuOpen)}
+              className="p-2 hover:bg-secondary rounded-lg transition"
             >
-              {items.login}
-            </a>
-          )}
+              <User className="w-5 h-5" />
+            </button>
+            {userMenuOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-card border border-border rounded-lg shadow-lg">
+                {user ? (
+                  <>
+                    <div className="px-4 py-3 border-b border-border">
+                      <p className="text-sm font-semibold">{user.name}</p>
+                      <p className="text-xs text-muted-foreground">{user.email}</p>
+                    </div>
+                    <button
+                      onClick={() => {
+                        logout();
+                        setUserMenuOpen(false);
+                      }}
+                      className="w-full text-left px-4 py-2 text-sm hover:bg-secondary transition flex items-center gap-2"
+                    >
+                      <LogOut className="w-4 h-4" />
+                      {items.logout}
+                    </button>
+                  </>
+                ) : (
+                  <a
+                    href={getLoginUrl()}
+                    className="block px-4 py-2 text-sm hover:bg-secondary transition"
+                  >
+                    {items.login}
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2 hover:bg-secondary rounded-lg transition"
@@ -211,24 +180,12 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-border bg-secondary p-4 space-y-3">
+        <div className="md:hidden border-t border-border bg-secondary/50 px-4 py-4">
           <button
             onClick={() => handleNavClick("/products")}
             className="block w-full text-left text-sm hover:text-accent transition"
           >
             {items.products}
-          </button>
-          <button
-            onClick={() => handleNavClick("/shop")}
-            className="block w-full text-left text-sm hover:text-accent transition"
-          >
-            {items.shop}
-          </button>
-          <button
-            onClick={() => handleNavClick("/about")}
-            className="block w-full text-left text-sm hover:text-accent transition"
-          >
-            {items.about}
           </button>
           <button
             onClick={() => handleNavClick("/events")}
@@ -237,22 +194,16 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
             {items.events}
           </button>
           <button
-            onClick={() => handleNavClick("/blog")}
-            className="block w-full text-left text-sm hover:text-accent transition"
-          >
-            {items.blog}
-          </button>
-          <button
             onClick={() => handleNavClick("/wine-club")}
             className="block w-full text-left text-sm hover:text-accent transition"
           >
             {items.wineClub}
           </button>
           <button
-            onClick={() => handleNavClick("/reservation")}
+            onClick={() => handleNavClick("/about")}
             className="block w-full text-left text-sm hover:text-accent transition"
           >
-            {items.reservation}
+            {items.about}
           </button>
         </div>
       )}
