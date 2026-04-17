@@ -50,68 +50,68 @@ Focus: elegance, sophistication, premium aesthetic.
 
 :root {
   --radius: 0.5rem;
-  /* Wine-inspired warm palette for Weinhaus Tbilisi */
-  --background: #1a1410;
-  --foreground: #f5f1ed;
-  --card: #2a211a;
-  --card-foreground: #f5f1ed;
-  --popover: #2a211a;
-  --popover-foreground: #f5f1ed;
-  /* Wine red and warm gold accents */
-  --primary: #a84c3a;
-  --primary-foreground: #f5f1ed;
-  --secondary: #3a2f28;
-  --secondary-foreground: #f5f1ed;
-  --muted: #4a3f38;
-  --muted-foreground: #b8a89c;
-  --accent: #c85a3a;
-  --accent-foreground: #f5f1ed;
+  /* Light luxury palette - white background with black text and gold accents */
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --card: rgba(255, 255, 255, 0.7);
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  /* Gold accents */
+  --primary: #c8a96e;
+  --primary-foreground: #1a1a1a;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #1a1a1a;
+  --muted: #cccccc;
+  --muted-foreground: #666666;
+  --accent: #c8a96e;
+  --accent-foreground: #ffffff;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #3a2f28;
-  --input: #3a2f28;
-  --ring: #c85a3a;
-  --chart-1: #c85a3a;
-  --chart-2: #d47a5a;
-  --chart-3: #a84c3a;
-  --chart-4: #8a3a2a;
-  --chart-5: #6a2a1a;
-  --sidebar: #1a1410;
-  --sidebar-foreground: #f5f1ed;
-  --sidebar-primary: #c85a3a;
-  --sidebar-primary-foreground: #f5f1ed;
-  --sidebar-accent: #3a2f28;
-  --sidebar-accent-foreground: #c85a3a;
-  --sidebar-border: #3a2f28;
-  --sidebar-ring: #c85a3a;
+  --border: #e5e5e5;
+  --input: #ffffff;
+  --ring: #c8a96e;
+  --chart-1: #c8a96e;
+  --chart-2: #d4b896;
+  --chart-3: #b89a5e;
+  --chart-4: #a88a4e;
+  --chart-5: #987a3e;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #c8a96e;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f5f5f5;
+  --sidebar-accent-foreground: #c8a96e;
+  --sidebar-border: #e5e5e5;
+  --sidebar-ring: #c8a96e;
 }
 
 .dark {
-  --background: #1a1410;
-  --foreground: #f5f1ed;
-  --card: #2a211a;
-  --card-foreground: #f5f1ed;
-  --popover: #2a211a;
-  --popover-foreground: #f5f1ed;
-  --primary: #a84c3a;
-  --primary-foreground: #f5f1ed;
-  --secondary: #3a2f28;
-  --secondary-foreground: #f5f1ed;
-  --muted: #4a3f38;
-  --muted-foreground: #b8a89c;
-  --accent: #c85a3a;
-  --accent-foreground: #f5f1ed;
-  --border: #3a2f28;
-  --input: #3a2f28;
-  --ring: #c85a3a;
-  --sidebar: #1a1410;
-  --sidebar-foreground: #f5f1ed;
-  --sidebar-primary: #c85a3a;
-  --sidebar-primary-foreground: #f5f1ed;
-  --sidebar-accent: #3a2f28;
-  --sidebar-accent-foreground: #c85a3a;
-  --sidebar-border: #3a2f28;
-  --sidebar-ring: #c85a3a;
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --card: rgba(255, 255, 255, 0.7);
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  --primary: #c8a96e;
+  --primary-foreground: #1a1a1a;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #1a1a1a;
+  --muted: #cccccc;
+  --muted-foreground: #666666;
+  --accent: #c8a96e;
+  --accent-foreground: #ffffff;
+  --border: #e5e5e5;
+  --input: #ffffff;
+  --ring: #c8a96e;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #c8a96e;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f5f5f5;
+  --sidebar-accent-foreground: #c8a96e;
+  --sidebar-border: #e5e5e5;
+  --sidebar-ring: #c8a96e;
 }
 
 @layer base {

@@ -139,9 +139,9 @@
 - [x] Test complete authentication flow
 
 
-## Bug Fixes — In Progress
+## Bug Fixes — Complete
 
-- [x] Fix cart functionality - products not being added to cart
+- [x] Fix cart functionality - products not being added to cart (ProductDetail.tsx now uses CartContext)
 - [x] Hide language selector from Shop page header
 - [x] Improve Reservation page quantity controls with +/- buttons
 - [x] Fix Blog 'Mehr lesen' links to open article detail pages
