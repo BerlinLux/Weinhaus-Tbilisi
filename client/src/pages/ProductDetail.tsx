@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useLocation } from "wouter";
 import { ShoppingCart, Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
+import { useCart } from "@/contexts/CartContext";
+import { useNotification } from "@/contexts/NotificationContext";
 
 type Language = "DE" | "EN" | "KA";
 type ProductCategory = "bottle" | "barrel" | "qvevri" | "voucher";
@@ -122,8 +123,23 @@ export default function ProductDetail({ language, productId }: ProductDetailProp
 
   const lang = labels[language];
 
+  const { addItem } = useCart();
+  const { addNotification } = useNotification();
+
   const handleAddToCart = () => {
-    toast.success(`${product.name[language]} დამატებულია კალათაში!`);
+    addItem({
+      id: product.id,
+      name: product.name[language],
+      price: product.price,
+      quantity: quantity,
+      category: product.category,
+    });
+    addNotification({
+      type: "success",
+      title: language === "DE" ? "Hinzugefügt" : language === "EN" ? "Added" : "დამატებულია",
+      message: `${product.name[language]} ${language === "DE" ? "zum Warenkorb hinzugefügt" : language === "EN" ? "added to cart" : "კალათში დამატებულია"}`,
+      duration: 2000,
+    });
   };
 
   return (
