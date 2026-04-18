@@ -24,6 +24,7 @@ import ProductDetail from "./pages/ProductDetail";
 import EventDetail from "./pages/EventDetail";
 import Profile from "./pages/Profile";
 import WineClub from "./pages/WineClub";
+import PaymentHistory from "./pages/PaymentHistory";
 
 type Language = "DE" | "EN" | "KA";
 
@@ -49,6 +50,7 @@ function Router({ language, onLanguageChange }: RouterProps) {
   const EventDetailWrapper = ({ params }: any) => <EventDetail language={language} eventId={params.id} />;
   const ProfileWrapper = () => <Profile language={language} onLanguageChange={onLanguageChange} />;
   const WineClubWrapper = () => <WineClub language={language} />;
+  const PaymentHistoryWrapper = () => <PaymentHistory />;
   const NavigationWrapper = () => <Navigation language={language} onLanguageChange={onLanguageChange} />;
 
   return (
@@ -73,6 +75,7 @@ function Router({ language, onLanguageChange }: RouterProps) {
           <Route path={"/imprint"} component={ImprintWrapper} />
           <Route path={"/checkout"} component={CheckoutWrapper} />
           <Route path={"/profile"} component={ProfileWrapper} />
+          <Route path={"/payment-history"} component={PaymentHistoryWrapper} />
           <Route path={"/404"} component={NotFound} />
           {/* Final fallback route */}
           <Route component={NotFound} />

@@ -1,8 +1,8 @@
-import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router, protectedProcedure } from "./_core/trpc";
 import { z } from "zod";
+import { COOKIE_NAME } from "@shared/const";
 import {
   getProducts,
   getFeaturedProducts,
@@ -21,6 +21,11 @@ import {
   createOrder,
   getUserOrders,
 } from "./db";
+import {
+  createCheckoutSession,
+  getUserPaymentHistory,
+  getPaymentByOrderId,
+} from "./stripe";
 
 export const appRouter = router({
   system: systemRouter,
@@ -107,6 +112,48 @@ export const appRouter = router({
         })
       ),
     userOrders: protectedProcedure.query(({ ctx }) => getUserOrders(ctx.user.id)),
+  }),
+
+  payment: router({
+    createCheckoutSession: protectedProcedure
+      .input(
+        z.object({
+          orderId: z.number(),
+          items: z.array(
+            z.object({
+              name: z.string(),
+              price: z.number(),
+              quantity: z.number(),
+            })
+          ),
+          total: z.number(),
+          successUrl: z.string(),
+          cancelUrl: z.string(),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        const session = await createCheckoutSession(
+          input.orderId,
+          ctx.user.id,
+          ctx.user.email || "",
+          input.items,
+          input.total,
+          input.successUrl,
+          input.cancelUrl
+        );
+        return {
+          checkoutUrl: session.url,
+          sessionId: session.id,
+        };
+      }),
+    paymentHistory: protectedProcedure.query(async ({ ctx }) => {
+      return await getUserPaymentHistory(ctx.user.id);
+    }),
+    paymentDetails: protectedProcedure
+      .input(z.object({ orderId: z.number() }))
+      .query(async ({ input }) => {
+        return await getPaymentByOrderId(input.orderId);
+      }),
   }),
 });
 

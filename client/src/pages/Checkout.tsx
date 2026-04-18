@@ -1,10 +1,12 @@
 import { useLocation } from "wouter";
-import { Trash2, Plus, Minus } from "lucide-react";
+import { Trash2, Plus, Minus, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
+import { trpc } from "@/lib/trpc";
+import { useAuth } from "@/_core/hooks/useAuth";
 
 type Language = "DE" | "EN" | "KA";
 
@@ -125,7 +127,12 @@ export default function Checkout({ language }: CheckoutProps) {
   const shipping = total > 50 ? 0 : 5.99;
   const totalWithShipping = total + shipping;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const { user } = useAuth();
+  const [isProcessing, setIsProcessing] = useState(false);
+  const createCheckoutSession = trpc.payment.createCheckoutSession.useMutation();
+  const createOrder = trpc.orders.create.useMutation();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!formData.firstName || !formData.email || !formData.address) {
@@ -139,17 +146,71 @@ export default function Checkout({ language }: CheckoutProps) {
       return;
     }
 
-    toast.success(
-      language === "DE"
-        ? "Bestellung aufgegeben! Vielen Dank."
-        : language === "EN"
-        ? "Order placed! Thank you."
-        : "შეკვეთა მიღებულია! გმადლობთ."
-    );
+    if (!user) {
+      toast.error(
+        language === "DE"
+          ? "Bitte melden Sie sich an"
+          : language === "EN"
+          ? "Please log in"
+          : "გთხოვთ შედით"
+      );
+      return;
+    }
 
-    // TODO: Integrate with Stripe payment
+    setIsProcessing(true);
 
-    setTimeout(() => setLocation("/"), 2000);
+    try {
+      // Create order first
+      const orderResult = await createOrder.mutateAsync({
+        email: formData.email,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        phone: formData.phone,
+        address: formData.address,
+        city: formData.city,
+        postalCode: formData.postalCode,
+        country: formData.country,
+        total: Math.round(totalWithShipping * 100),
+        items: JSON.stringify(cartItems),
+      });
+
+      const orderId = Array.isArray(orderResult) ? (orderResult[0] as any)?.id : (orderResult as any)?.id;
+
+      // Create Stripe checkout session
+      const checkoutSession = await createCheckoutSession.mutateAsync({
+        orderId: orderId || 0,
+        items: cartItems.map((item) => ({
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity,
+        })),
+        total: Math.round(totalWithShipping * 100),
+        successUrl: `${window.location.origin}/payment-history`,
+        cancelUrl: `${window.location.origin}/checkout`,
+      });
+
+      if (checkoutSession.checkoutUrl) {
+        toast.success(
+          language === "DE"
+            ? "Weiterleitung zur Zahlung..."
+            : language === "EN"
+            ? "Redirecting to payment..."
+            : "გადამისამართება გადახდაზე..."
+        );
+        window.open(checkoutSession.checkoutUrl, "_blank");
+      }
+    } catch (error) {
+      console.error("Checkout error:", error);
+      toast.error(
+        language === "DE"
+          ? "Fehler beim Erstellen der Bestellung"
+          : language === "EN"
+          ? "Error creating order"
+          : "შეკვეთის შექმნაში შეცდომა"
+      );
+    } finally {
+      setIsProcessing(false);
+    }
   };
 
   if (cartItems.length === 0) {
@@ -308,9 +369,21 @@ export default function Checkout({ language }: CheckoutProps) {
 
               <Button
                 type="submit"
-                className="w-full bg-accent text-accent-foreground hover:bg-accent/90 mt-6"
+                disabled={isProcessing}
+                className="w-full bg-accent text-accent-foreground hover:bg-accent/90 py-3 text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {lang.completeOrder}
+                {isProcessing ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    {language === "DE"
+                      ? "Verarbeitung..."
+                      : language === "EN"
+                      ? "Processing..."
+                      : "დამუშავება..."}
+                  </>
+                ) : (
+                  lang.completeOrder
+                )}
               </Button>
             </form>
           </div>

@@ -185,12 +185,12 @@
 - [x] Update all buttons to gold color
 - [x] Ensure consistent styling across all pages
 
-## Stripe Integration — Pending
+## Stripe Integration — Complete
 
-- [ ] Add Stripe payment integration for product purchases and wine club membership
-- [ ] Create checkout session handler
-- [ ] Implement webhook for payment confirmation
-- [ ] Add payment history page
+- [x] Add Stripe payment integration for product purchases and wine club membership
+- [x] Create checkout session handler
+- [x] Implement webhook for payment confirmation
+- [x] Add payment history page
 
 
 ## Frontend Tests — Pending
