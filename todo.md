@@ -193,9 +193,10 @@
 - [x] Add payment history page
 
 
-## Frontend Tests — Pending
+## Frontend Tests — Complete
 
-- [ ] Add frontend tests for cart persistence (localStorage)
+- [x] Add frontend tests for cart persistence (localStorage) - 8 passing tests
+- [x] Add Stripe integration tests (server-side payment helpers) - 15 passing tests
 
 
 ## Interface Refinement — Complete
