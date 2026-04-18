@@ -203,10 +203,13 @@ export default function Products({ language }: ProductsProps) {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Decorative Top Border */}
+      <div className="h-1 bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+      
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-border bg-background">
+      <header className="sticky top-0 z-40 border-b border-border bg-background shadow-elevation-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <h1 className="text-lg font-semibold tracking-tight">{lang.title}</h1>
+          <h1 className="text-lg font-semibold tracking-tight text-headline">{lang.title}</h1>
         </div>
       </header>
 
@@ -227,16 +230,16 @@ export default function Products({ language }: ProductsProps) {
             </div>
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="px-4 py-2 border border-border rounded-lg hover:bg-secondary transition flex items-center gap-2"
+              className="px-4 py-2 border border-border rounded-lg hover:bg-secondary transition-smooth flex items-center gap-2 group"
             >
-              <Filter className="w-4 h-4" />
+              <Filter className="w-4 h-4 group-hover:scale-110 transition-transform" />
               {lang.filter}
             </button>
           </div>
 
           {/* Filters */}
           {showFilters && (
-            <div className="p-4 bg-secondary rounded-lg space-y-4">
+            <div className="p-4 bg-gradient-subtle rounded-lg space-y-4 shadow-elevation-2">
               <div>
                 <label className="block text-sm font-medium mb-2">{lang.region}</label>
                 <div className="flex flex-wrap gap-2">
@@ -306,28 +309,30 @@ export default function Products({ language }: ProductsProps) {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProducts.map((product) => (
-              <div key={product.id} onClick={() => setLocation(`/product/${product.id}`)} className="bg-background border border-border rounded-lg overflow-hidden hover:shadow-md transition cursor-pointer w-full">
-                <img
-                  src={product.image}
-                  alt={product.name[language]}
-                  className="w-full h-48 object-cover"
-                />
+              <div key={product.id} onClick={() => setLocation(`/product/${product.id}`)} className="card-3d bg-card border border-accent-subtle rounded-lg overflow-hidden cursor-pointer w-full group">
+                <div className="relative overflow-hidden h-48">
+                  <img
+                    src={product.image}
+                    alt={product.name[language]}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
                 <div className="p-4">
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-semibold text-sm">{product.name[language]}</h3>
-                    <Badge variant="outline" className="text-xs">
+                    <h3 className="font-semibold text-sm text-body">{product.name[language]}</h3>
+                    <Badge variant="outline" className="text-xs border-accent-subtle">
                       {getCategoryLabel(product.category)}
                     </Badge>
                   </div>
-                  <p className="text-xs text-muted-foreground mb-3">{product.region}</p>
+                  <p className="text-xs text-muted-foreground mb-3 text-caption">{product.region}</p>
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold">€{product.price}</span>
+                    <span className="font-semibold text-accent-gold">€{product.price}</span>
                     <Button
                       onClick={() => {
                         addToCart(product);
                       }}
                       size="sm"
-                      className="bg-accent text-accent-foreground hover:bg-accent/90"
+                      className="btn-premium text-xs py-1 px-3"
                     >
                       {lang.addToCart}
                     </Button>

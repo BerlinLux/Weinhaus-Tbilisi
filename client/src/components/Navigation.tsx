@@ -58,14 +58,14 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
   };
 
   return (
-    <header className="bg-background border-b border-border sticky top-0 z-50">
+    <header className="bg-background border-b border-border sticky top-0 z-50 shadow-elevation-2">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo with 3D Effect */}
         <button
           onClick={() => handleNavClick("/")}
-          className="flex items-center gap-2 hover:opacity-80 transition"
+          className="flex items-center gap-2 hover:opacity-80 transition-smooth group"
         >
-          <div className="w-8 h-8 bg-accent rounded-sm"></div>
+          <div className="w-8 h-8 bg-accent rounded-sm group-hover:shadow-elevation-3 transition-all"></div>
           <h1 className="text-lg font-semibold tracking-tight text-foreground">Weinhaus Tbilisi</h1>
         </button>
 
@@ -73,27 +73,31 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
         <nav className="hidden md:flex items-center gap-8 text-sm">
           <button
             onClick={() => handleNavClick("/products")}
-            className="hover:text-accent transition"
+            className="hover:text-accent transition-smooth relative group"
           >
             {items.products}
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all"></span>
           </button>
           <button
             onClick={() => handleNavClick("/events")}
-            className="hover:text-accent transition"
+            className="hover:text-accent transition-smooth relative group"
           >
             {items.events}
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all"></span>
           </button>
           <button
             onClick={() => handleNavClick("/wine-club")}
-            className="hover:text-accent transition"
+            className="hover:text-accent transition-smooth relative group"
           >
             {items.wineClub}
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all"></span>
           </button>
           <button
             onClick={() => handleNavClick("/about")}
-            className="hover:text-accent transition"
+            className="hover:text-accent transition-smooth relative group"
           >
             {items.about}
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all"></span>
           </button>
         </nav>
 
@@ -119,11 +123,11 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
           {/* Cart */}
           <button
             onClick={() => handleNavClick("/checkout")}
-            className="relative p-2 hover:bg-secondary rounded-lg transition"
+            className="relative p-2 hover:bg-secondary rounded-lg transition-smooth group"
           >
-            <ShoppingCart className="w-5 h-5" />
+            <ShoppingCart className="w-5 h-5 group-hover:scale-110 transition-transform" />
             {cartCount > 0 && (
-              <span className="absolute top-1 right-1 bg-accent text-accent-foreground text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+              <span className="absolute top-1 right-1 bg-accent text-accent-foreground text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-elevation-2 group-hover:shadow-elevation-3">
                 {cartCount}
               </span>
             )}
@@ -133,12 +137,12 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
           <div className="relative">
             <button
               onClick={() => setUserMenuOpen(!userMenuOpen)}
-              className="p-2 hover:bg-secondary rounded-lg transition"
+              className="p-2 hover:bg-secondary rounded-lg transition-smooth group"
             >
-              <User className="w-5 h-5" />
+              <User className="w-5 h-5 group-hover:scale-110 transition-transform" />
             </button>
             {userMenuOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-card border border-border rounded-lg shadow-lg">
+              <div className="absolute right-0 mt-2 w-48 bg-card border border-border rounded-lg shadow-elevation-4 card-3d">
                 {user ? (
                   <>
                     <div className="px-4 py-3 border-b border-border">
@@ -171,9 +175,9 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 hover:bg-secondary rounded-lg transition"
+            className="md:hidden p-2 hover:bg-secondary rounded-lg transition-smooth group"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-5 h-5 group-hover:scale-110 transition-transform" /> : <Menu className="w-5 h-5 group-hover:scale-110 transition-transform" />}
           </button>
         </div>
       </div>

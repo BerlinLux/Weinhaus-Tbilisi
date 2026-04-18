@@ -113,15 +113,22 @@ export default function Home({ language }: HomeProps) {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Hero Section - Simple and Clean */}
-      <section className="py-20 px-4 text-center">
+      {/* Decorative Top Border */}
+      <div className="h-1 bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+
+      {/* Hero Section - Enhanced with 3D Effects */}
+      <section className="py-20 px-4 text-center relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -z-10"></div>
+        
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">{lang.welcome}</h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8">{lang.tagline}</p>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-display">{lang.welcome}</h1>
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 text-body-large">{lang.tagline}</p>
           <Button
             onClick={() => setLocation("/products")}
             size="lg"
-            className="bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-3 text-lg"
+            className="btn-premium px-8 py-3 text-lg"
           >
             {lang.browseWines}
             <ArrowRight className="w-5 h-5 ml-2" />
@@ -129,71 +136,95 @@ export default function Home({ language }: HomeProps) {
         </div>
       </section>
 
-      {/* Main Categories - 3 Simple Cards */}
-      <section className="py-16 px-4 bg-secondary/30">
+      {/* Decorative Vine Divider */}
+      <div className="flex justify-center py-8 px-4">
+        <img
+          src="https://d36hbw14aib5lz.cloudfront.net/310519663562204057/GpY8FacRagpb8d3GTnQBPg/vine-border-divider-iZykBHa3ibBuvpmcfHBmwG.webp"
+          alt="Decorative vine divider"
+          className="max-w-2xl w-full h-auto opacity-80 hover:opacity-100 transition-opacity"
+        />
+      </div>
+
+      {/* Main Categories - Enhanced 3D Cards */}
+      <section className="py-16 px-4 bg-gradient-subtle">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center">{lang.mainCategories}</h2>
+          <h2 className="text-4xl font-bold mb-12 text-center text-headline">{lang.mainCategories}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Wines Card */}
             <button
               onClick={() => setLocation("/products")}
-              className="bg-card rounded-lg p-8 border border-border hover:border-accent transition text-left"
+              className="card-3d bg-card rounded-lg p-8 border border-accent-subtle text-left group"
             >
-              <Wine className="w-12 h-12 text-accent mb-4" />
-              <h3 className="text-2xl font-bold mb-2">{lang.wines}</h3>
-              <p className="text-muted-foreground">{lang.winesDesc}</p>
+              <div className="relative mb-4">
+                <Wine className="w-12 h-12 text-accent group-hover:scale-110 transition-transform" />
+              </div>
+              <h3 className="text-2xl font-bold mb-2 text-headline">{lang.wines}</h3>
+              <p className="text-muted-foreground text-body">{lang.winesDesc}</p>
             </button>
 
             {/* Events Card */}
             <button
               onClick={() => setLocation("/events")}
-              className="bg-card rounded-lg p-8 border border-border hover:border-accent transition text-left"
+              className="card-3d bg-card rounded-lg p-8 border border-accent-subtle text-left group"
             >
-              <Calendar className="w-12 h-12 text-accent mb-4" />
-              <h3 className="text-2xl font-bold mb-2">{lang.events}</h3>
-              <p className="text-muted-foreground">{lang.eventsDesc}</p>
+              <div className="relative mb-4">
+                <Calendar className="w-12 h-12 text-accent group-hover:scale-110 transition-transform" />
+              </div>
+              <h3 className="text-2xl font-bold mb-2 text-headline">{lang.events}</h3>
+              <p className="text-muted-foreground text-body">{lang.eventsDesc}</p>
             </button>
 
             {/* Wine Club Card */}
             <button
               onClick={() => setLocation("/wine-club")}
-              className="bg-card rounded-lg p-8 border border-border hover:border-accent transition text-left"
+              className="card-3d bg-card rounded-lg p-8 border border-accent-subtle text-left group"
             >
-              <Users className="w-12 h-12 text-accent mb-4" />
-              <h3 className="text-2xl font-bold mb-2">{lang.club}</h3>
-              <p className="text-muted-foreground">{lang.clubDesc}</p>
+              <div className="relative mb-4">
+                <Users className="w-12 h-12 text-accent group-hover:scale-110 transition-transform" />
+              </div>
+              <h3 className="text-2xl font-bold mb-2 text-headline">{lang.club}</h3>
+              <p className="text-muted-foreground text-body">{lang.clubDesc}</p>
             </button>
           </div>
         </div>
       </section>
 
-      {/* Special Offers - Simple List */}
+      {/* Special Offers - Enhanced with Accent */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center">{lang.specialOffers}</h2>
+          <h2 className="text-4xl font-bold mb-12 text-center text-headline">{lang.specialOffers}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-accent/10 rounded-lg p-6 border-l-4 border-accent">
-              <p className="text-lg font-semibold">{lang.offer1}</p>
+            <div className="card-3d bg-accent/5 rounded-lg p-6 border-l-4 border-accent hover:bg-accent/10">
+              <p className="text-lg font-semibold text-body">{lang.offer1}</p>
             </div>
-            <div className="bg-accent/10 rounded-lg p-6 border-l-4 border-accent">
-              <p className="text-lg font-semibold">{lang.offer2}</p>
+            <div className="card-3d bg-accent/5 rounded-lg p-6 border-l-4 border-accent hover:bg-accent/10">
+              <p className="text-lg font-semibold text-body">{lang.offer2}</p>
             </div>
-            <div className="bg-accent/10 rounded-lg p-6 border-l-4 border-accent">
-              <p className="text-lg font-semibold">{lang.offer3}</p>
+            <div className="card-3d bg-accent/5 rounded-lg p-6 border-l-4 border-accent hover:bg-accent/10">
+              <p className="text-lg font-semibold text-body">{lang.offer3}</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Upcoming Events - Simple Preview */}
-      <section className="py-16 px-4 bg-secondary/30">
+      {/* Decorative Georgian Cross */}
+      <div className="flex justify-center py-8 px-4">
+        <img
+          src="https://d36hbw14aib5lz.cloudfront.net/310519663562204057/GpY8FacRagpb8d3GTnQBPg/georgian-cross-pattern-Evqee59naNsSSMGmJHM6ca.webp"
+          alt="Georgian cross pattern"
+          className="w-24 h-24 opacity-60 hover:opacity-80 transition-opacity"
+        />
+      </div>
+
+      {/* Upcoming Events - Enhanced with 3D Effects */}
+      <section className="py-16 px-4 bg-gradient-subtle">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between mb-12">
-            <h2 className="text-4xl font-bold">{lang.upcomingEvents}</h2>
+            <h2 className="text-4xl font-bold text-headline">{lang.upcomingEvents}</h2>
             <Button
               onClick={() => setLocation("/events")}
               variant="outline"
-              className="border-border hover:bg-secondary"
+              className="border-border hover:bg-secondary transition-smooth"
             >
               {lang.viewAll} <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
@@ -203,37 +234,55 @@ export default function Home({ language }: HomeProps) {
               <button
                 key={event.id}
                 onClick={() => setLocation(`/event/${event.id}`)}
-                className="bg-card rounded-lg p-6 border border-border hover:border-accent transition text-left"
+                className="card-3d bg-card rounded-lg p-6 border border-accent-subtle text-left"
               >
-                <h3 className="text-xl font-bold mb-2">
+                <h3 className="text-xl font-bold mb-2 text-headline">
                   {language === "DE" ? event.name_DE : language === "EN" ? event.name_EN : event.name_KA}
                 </h3>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm text-muted-foreground mb-4 text-caption">
                   {new Date(event.date).toLocaleDateString(
                     language === "DE" ? "de-DE" : language === "EN" ? "en-US" : "ka-GE"
                   )}
                 </p>
-                <p className="text-accent font-bold">{event.price}€</p>
+                <p className="text-accent font-bold text-body">{event.price}€</p>
               </button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* About Section - Simple Info */}
-      <section className="py-16 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">{lang.aboutUs}</h2>
-          <p className="text-lg text-muted-foreground mb-8">{lang.aboutDesc}</p>
+      {/* About Section - Enhanced with Decorative Elements */}
+      <section className="py-16 px-4 relative">
+        {/* Decorative vine leaves background */}
+        <div className="absolute top-0 left-0 opacity-10 pointer-events-none">
+          <img
+            src="https://d36hbw14aib5lz.cloudfront.net/310519663562204057/GpY8FacRagpb8d3GTnQBPg/georgian-vine-leaves-8wF3e3ZvJsoduugLQHiN4G.webp"
+            alt="Decorative vine"
+            className="w-48 h-48"
+          />
+        </div>
+        <div className="absolute bottom-0 right-0 opacity-10 pointer-events-none">
+          <img
+            src="https://d36hbw14aib5lz.cloudfront.net/310519663562204057/GpY8FacRagpb8d3GTnQBPg/georgian-vine-leaves-8wF3e3ZvJsoduugLQHiN4G.webp"
+            alt="Decorative vine"
+            className="w-48 h-48 transform scale-x-[-1]"
+          />
+        </div>
+        
+        <div className="max-w-3xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl font-bold mb-6 text-headline">{lang.aboutUs}</h2>
+          <p className="text-lg text-muted-foreground mb-8 text-body-large">{lang.aboutDesc}</p>
           <Button
             onClick={() => setLocation("/about")}
-            variant="outline"
-            className="border-border hover:bg-secondary"
+            className="btn-premium"
           >
             {lang.learnMore}
           </Button>
         </div>
       </section>
+
+      {/* Decorative Bottom Border */}
+      <div className="h-1 bg-gradient-to-r from-transparent via-accent to-transparent"></div>
     </div>
   );
 }
