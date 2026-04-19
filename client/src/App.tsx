@@ -34,7 +34,6 @@ interface RouterProps {
 }
 
 function Router({ language, onLanguageChange }: RouterProps) {
-  const HomeWrapper = () => <Home language={language} onLanguageChange={onLanguageChange} />;
   const AboutWrapper = () => <About language={language} />;
   const EventsWrapper = () => <Events language={language} />;
   const BlogWrapper = () => <Blog language={language} />;
@@ -59,7 +58,7 @@ function Router({ language, onLanguageChange }: RouterProps) {
       {/* Page Content */}
       <main className="flex-1">
         <Switch>
-          <Route path={"/"} component={HomeWrapper} />
+          <Route path={"/"} component={Home} />
           <Route path={"/products"} component={ProductsWrapper} />
           <Route path={"/product/:id"} component={ProductDetailWrapper} />
           <Route path={"/shop"} component={ShopWrapper} />
