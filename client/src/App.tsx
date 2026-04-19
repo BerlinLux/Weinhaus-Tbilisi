@@ -34,7 +34,7 @@ interface RouterProps {
 }
 
 function Router({ language, onLanguageChange }: RouterProps) {
-  const HomeWrapper = () => <Home language={language} onLanguageChange={onLanguageChange} />;
+  const HomeWrapper = () => <Home />;
   const AboutWrapper = () => <About language={language} />;
   const EventsWrapper = () => <Events language={language} />;
   const BlogWrapper = () => <Blog language={language} />;
@@ -128,7 +128,7 @@ function Router({ language, onLanguageChange }: RouterProps) {
           </div>
 
           <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; 2026 Georgian Wine Berlin. {language === 'DE' ? 'Alle Rechte vorbehalten.' : language === 'EN' ? 'All rights reserved.' : 'ყველა უფლება დაცულია.'}</p>
+            <p>&copy; 2026 Weinhaus Tbilisi. {language === 'DE' ? 'Alle Rechte vorbehalten.' : language === 'EN' ? 'All rights reserved.' : 'ყველა უფლება დაცულია.'}</p>
           </div>
         </div>
       </footer>
@@ -147,7 +147,7 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="dark">
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
           <NotificationContainer />

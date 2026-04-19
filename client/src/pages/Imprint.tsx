@@ -17,7 +17,8 @@ export default function Imprint({ language }: ImprintProps) {
         {
           heading: "Angaben gemäß § 5 TMG",
           items: [
-            "Georgian Wine Berlin",
+            "BerlinLux Gastronomie GmbH",
+            "Weinhaus Tbilisi",
             "Charlottenburg",
             "10587 Berlin",
             "Deutschland",
@@ -26,14 +27,14 @@ export default function Imprint({ language }: ImprintProps) {
         {
           heading: "Kontakt",
           items: [
-            "E-Mail: hello@georgianwine.berlin",
-            "Telefon: +49 (0) 30 12345678",
+            "E-Mail: info@weinhaus-tbilisi.de",
+            "Telefon: +49 30 123 456 789",
           ],
         },
         {
           heading: "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV",
           items: [
-            "Georgian Wine Berlin",
+            "BerlinLux Gastronomie GmbH",
             "Charlottenburg",
             "10587 Berlin",
           ],
@@ -54,7 +55,8 @@ export default function Imprint({ language }: ImprintProps) {
         {
           heading: "Information according to § 5 TMG",
           items: [
-            "Georgian Wine Berlin",
+            "BerlinLux Gastronomie GmbH",
+            "Weinhaus Tbilisi",
             "Charlottenburg",
             "10587 Berlin",
             "Germany",
@@ -63,14 +65,14 @@ export default function Imprint({ language }: ImprintProps) {
         {
           heading: "Contact",
           items: [
-            "Email: hello@georgianwine.berlin",
-            "Phone: +49 (0) 30 12345678",
+            "Email: info@weinhaus-tbilisi.de",
+            "Phone: +49 30 123 456 789",
           ],
         },
         {
           heading: "Responsible for content according to § 55 Abs. 2 RStV",
           items: [
-            "Georgian Wine Berlin",
+            "BerlinLux Gastronomie GmbH",
             "Charlottenburg",
             "10587 Berlin",
           ],

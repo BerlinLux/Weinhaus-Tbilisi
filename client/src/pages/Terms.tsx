@@ -17,27 +17,27 @@ export default function Terms({ language }: TermsProps) {
       sections: [
         {
           heading: "1. Geltungsbereich",
-          text: "Diese Bedingungen gelten für alle Reservierungen und Käufe auf unserer Website.",
+          text: "Diese AGB gelten für alle Bestellungen und Dienstleistungen von Weinhaus Tbilisi (BerlinLux Gastronomie GmbH).",
         },
         {
-          heading: "2. Reservierungen",
-          text: "Reservierungen sind verbindlich nach Bestätigung per E-Mail. Eine Stornierung ist bis 48 Stunden vor dem Event kostenlos möglich.",
+          heading: "2. Bestellprozess",
+          text: "Bestellungen können online über unsere Website aufgegeben werden. Alle Bestellungen unterliegen unserer Bestätigung.",
         },
         {
-          heading: "3. Zahlungsbedingungen",
-          text: "Zahlungen sind bei der Reservierung oder vor dem Event fällig. Wir akzeptieren Kreditkarten und Banküberweisung.",
+          heading: "3. Preise und Zahlungsbedingungen",
+          text: "Alle Preise sind in Euro (€) angegeben und enthalten die gesetzliche Mehrwertsteuer. Zahlungen erfolgen über Stripe oder andere sichere Zahlungsmethoden.",
         },
         {
-          heading: "4. Altersbestätigung",
-          text: "Der Kauf und Konsum von alkoholischen Getränken ist nur für Personen ab 18 Jahren gestattet.",
+          heading: "4. Lieferung",
+          text: "Lieferungen erfolgen nach Verfügbarkeit. Lieferzeiten werden bei der Bestellung angegeben. Wir liefern innerhalb Deutschlands.",
         },
         {
-          heading: "5. Haftung",
-          text: "Wir haften nicht für Schäden, die durch die Nutzung unserer Website oder Produkte entstehen.",
+          heading: "5. Rückgaberecht",
+          text: "Wein kann aus Sicherheitsgründen nicht zurückgegeben werden. Bei fehlerhaften Produkten kontaktieren Sie uns bitte unter info@weinhaus-tbilisi.de",
         },
         {
-          heading: "6. Änderungen",
-          text: "Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern.",
+          heading: "6. Altersverifikation",
+          text: "Der Verkauf von Alkohol ist nur an Personen ab 18 Jahren gestattet. Durch die Nutzung dieser Website bestätigen Sie, dass Sie mindestens 18 Jahre alt sind.",
         },
       ],
     },

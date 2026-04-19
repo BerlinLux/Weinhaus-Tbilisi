@@ -17,15 +17,15 @@ export default function Privacy({ language }: PrivacyProps) {
       sections: [
         {
           heading: "1. Verantwortlicher",
-          text: "Georgian Wine Berlin, Berlin, Deutschland",
+          text: "BerlinLux Gastronomie GmbH, Weinhaus Tbilisi, Charlottenburg, 10587 Berlin, Deutschland",
         },
         {
           heading: "2. Erfassung von Daten",
-          text: "Wir erfassen personenbezogene Daten nur, wenn Sie diese freiwillig bereitstellen, z.B. durch Reservierungsformulare oder Newsletter-Anmeldungen.",
+          text: "Wir erfassen personenbezogene Daten nur, wenn Sie diese freiwillig bereitstellen, z.B. durch Bestellformulare, Reservierungen oder Newsletter-Anmeldungen.",
         },
         {
           heading: "3. Verwendung von Daten",
-          text: "Ihre Daten werden nur zur Verarbeitung von Reservierungen, zur Kommunikation und zur Verbesserung unserer Dienstleistungen verwendet.",
+          text: "Ihre Daten werden nur zur Verarbeitung von Bestellungen, Reservierungen, zur Kommunikation und zur Verbesserung unserer Dienstleistungen verwendet.",
         },
         {
           heading: "4. Datenschutz",
@@ -33,7 +33,7 @@ export default function Privacy({ language }: PrivacyProps) {
         },
         {
           heading: "5. Ihre Rechte",
-          text: "Sie haben das Recht, Ihre Daten zu überprüfen, zu korrigieren oder zu löschen. Kontaktieren Sie uns unter hello@georgianwine.berlin",
+          text: "Sie haben das Recht, Ihre Daten zu überprüfen, zu korrigieren oder zu löschen. Kontaktieren Sie uns unter info@weinhaus-tbilisi.de",
         },
       ],
     },
@@ -43,15 +43,15 @@ export default function Privacy({ language }: PrivacyProps) {
       sections: [
         {
           heading: "1. Controller",
-          text: "Georgian Wine Berlin, Berlin, Germany",
+          text: "BerlinLux Gastronomie GmbH, Weinhaus Tbilisi, Charlottenburg, 10587 Berlin, Germany",
         },
         {
           heading: "2. Data Collection",
-          text: "We collect personal data only when you voluntarily provide it, such as through reservation forms or newsletter subscriptions.",
+          text: "We collect personal data only when you voluntarily provide it, such as through order forms, reservations or newsletter subscriptions.",
         },
         {
           heading: "3. Data Usage",
-          text: "Your data is used only to process reservations, communicate with you, and improve our services.",
+          text: "Your data is used only to process orders, reservations, communicate with you, and improve our services.",
         },
         {
           heading: "4. Data Protection",
@@ -59,7 +59,7 @@ export default function Privacy({ language }: PrivacyProps) {
         },
         {
           heading: "5. Your Rights",
-          text: "You have the right to review, correct, or delete your data. Contact us at hello@georgianwine.berlin",
+          text: "You have the right to review, correct, or delete your data. Contact us at info@weinhaus-tbilisi.de",
         },
       ],
     },
@@ -69,15 +69,15 @@ export default function Privacy({ language }: PrivacyProps) {
       sections: [
         {
           heading: "1. პასუხისმგებელი",
-          text: "Georgian Wine Berlin, ბერლინი, გერმანია",
+          text: "BerlinLux Gastronomie GmbH, Weinhaus Tbilisi, Charlottenburg, 10587 ბერლინი, გერმანია",
         },
         {
           heading: "2. მონაცემთა შეგროვება",
-          text: "ჩვენ ვაგროვებთ პირად მონაცემებს მხოლოდ იმ შემთხვევაში, თუ თქვენ ეს ნებაყოფლობით მოგვაწოდებთ, მაგალითად რეზერვაციის ფორმებით ან ბიულეტენის გამოწერით.",
+          text: "ჩვენ ვაგროვებთ პირად მონაცემებს მხოლოდ იმ შემთხვევაში, თუ თქვენ ეს ნებაყოფლობით მოგვაწოდებთ, მაგალითად ბრძანების ფორმებით ან ბიულეტენის გამოწერით.",
         },
         {
           heading: "3. მონაცემთა გამოყენება",
-          text: "თქვენი მონაცემები გამოიყენება მხოლოდ რეზერვაციების დასამუშავებლად, თქვენთან კომუნიკაციისთვის და ჩვენი სერვისების გაუმჯობესებისთვის.",
+          text: "თქვენი მონაცემები გამოიყენება მხოლოდ ბრძანებების დასამუშავებლად, რეზერვაციებისთვის, თქვენთან კომუნიკაციისთვის და ჩვენი სერვისების გაუმჯობესებისთვის.",
         },
         {
           heading: "4. მონაცემთა დაცვა",
@@ -85,7 +85,7 @@ export default function Privacy({ language }: PrivacyProps) {
         },
         {
           heading: "5. თქვენი უფლებები",
-          text: "თქვენ გაქვთ უფლება გადახედოთ, გასწოროთ ან წაშალოთ თქვენი მონაცემები. დაგვიკავშირდით: hello@georgianwine.berlin",
+          text: "თქვენ გაქვთ უფლება გადახედოთ, გასწოროთ ან წაშალოთ თქვენი მონაცემები. დაგვიკავშირდით: info@weinhaus-tbilisi.de",
         },
       ],
     },
@@ -118,10 +118,10 @@ export default function Privacy({ language }: PrivacyProps) {
         <div className="mt-12 p-6 bg-secondary rounded-lg">
           <p className="text-sm text-muted-foreground">
             {language === "DE"
-              ? "Haben Sie Fragen zu unserer Datenschutzerklärung? Kontaktieren Sie uns unter hello@georgianwine.berlin"
+              ? "Haben Sie Fragen zu unserer Datenschutzerklärung? Kontaktieren Sie uns unter info@weinhaus-tbilisi.de"
               : language === "EN"
-              ? "Questions about our privacy policy? Contact us at hello@georgianwine.berlin"
-              : "კითხვები ჩვენი კონფიდენციალურობის პოლიტიკის შესახებ? დაგვიკავშირდით: hello@georgianwine.berlin"}
+              ? "Questions about our privacy policy? Contact us at info@weinhaus-tbilisi.de"
+              : "კითხვები ჩვენი კონფიდენციალურობის პოლიტიკის შესახებ? დაგვიკავშირდით: info@weinhaus-tbilisi.de"}
           </p>
         </div>
       </div>
